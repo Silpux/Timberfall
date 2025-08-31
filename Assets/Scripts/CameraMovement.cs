@@ -7,10 +7,12 @@ public class CameraMovement : MonoBehaviour{
 
     private bool isDragging;
     private Vector3 dragStartWorld;
+    private Vector2 dragStartScreen;
     private Plane yZeroPlane;
 
     [SerializeField] private Vector2 cameraMinXZ;
     [SerializeField] private Vector2 cameraMaxXZ;
+    [SerializeField] private float maxOffsetToDetectClick = 5f;
 
     private void Awake(){
         yZeroPlane = new Plane(Vector3.up, Vector3.zero);
@@ -40,14 +42,27 @@ public class CameraMovement : MonoBehaviour{
             return;
         }
 
-        if(GetMouseGroundPoint(Mouse.current.position.ReadValue(), out var hit)){
+        Vector2 mousePosition = Mouse.current.position.ReadValue();
+        if(GetMouseGroundPoint(mousePosition, out var hit)){
             dragStartWorld = hit;
+            dragStartScreen = mousePosition;
             isDragging = true;
         }
     }
 
     private void HandleUp(){
         isDragging = false;
+
+        Vector2 mousePosition = Mouse.current.position.ReadValue();
+        if(Mathf.Abs(Vector2.Distance(dragStartScreen, mousePosition)) < maxOffsetToDetectClick){
+            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit)){
+                Building building = hit.collider.GetComponent<Building>();
+                if(building != null){
+                    building.OnClick();
+                }
+            }
+        }
     }
 
     private void HandleLook(Vector2 delta){
