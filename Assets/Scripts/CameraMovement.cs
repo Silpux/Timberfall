@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class CameraMovement : MonoBehaviour{
@@ -35,6 +36,10 @@ public class CameraMovement : MonoBehaviour{
     }
 
     private void HandleDown(){
+        if(EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()){
+            return;
+        }
+
         if(GetMouseGroundPoint(Mouse.current.position.ReadValue(), out var hit)){
             dragStartWorld = hit;
             isDragging = true;
