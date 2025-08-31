@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8217d774bf932f942862057b9655f4bb, type: 3}
   m_Name: Lumbermill Strategy
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 5587454694313141390, guid: 0ee0f532c2f899e468996b5673785dae,
+  buildingPrefab: {fileID: -7820528609596971507, guid: 04b2d436d0e6a5144b869dfd053f47dc,
     type: 3}
   price: 100

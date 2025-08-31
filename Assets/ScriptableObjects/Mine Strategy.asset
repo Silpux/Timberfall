@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc52589d8ecad1e4fa9ae8bd8cbd5c56, type: 3}
   m_Name: Mine Strategy
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 473602386911675006, guid: 697a60036a6919d4d995369c3810a820,
+  buildingPrefab: {fileID: 624438102631215662, guid: cbae1b60a0b844e429a5795f79024f42,
     type: 3}
   price: 400

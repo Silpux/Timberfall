@@ -74,7 +74,7 @@ public class CameraBuilding : MonoBehaviour{
     }
 
     private void PlaceBuilding(Tile center, Tile[] tilesToOccupy){
-        GameObject building = Instantiate(buildingStrategy.BuildingPrefab, center.PlacementPoint);
+        Building building = Instantiate(buildingStrategy.BuildingPrefab, center.PlacementPoint);
         building.transform.localPosition = Vector3.zero;
 
         foreach(Tile t in tilesToOccupy){

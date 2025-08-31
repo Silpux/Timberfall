@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0be481f89f7d954e957089bb09d59a4, type: 3}
   m_Name: Blacksmith Strategy
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 2983171649456692883, guid: deeabec716fb8c042a13d8ef9755f2dd,
+  buildingPrefab: {fileID: 9005888202663015541, guid: 866f51144984fe246826a4308c400fdd,
     type: 3}
   price: 300

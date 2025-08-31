@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4d6aacb4ce398439f0bf7a841317b0, type: 3}
   m_Name: Market Strategy
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 8103069973862457680, guid: 1a0c5b5780f314240a4814306171ced8,
+  buildingPrefab: {fileID: -8984810206507884614, guid: 948e5932f5304ed4c99e4b96c07d2224,
     type: 3}
   price: 200
