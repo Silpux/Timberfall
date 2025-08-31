@@ -7,7 +7,7 @@ public class BlacksmithStrategy : BuildStrategySO{
             return false;
         }
         foreach(Tile t in tiles){
-            if(t is TileStone || !t.IsFree){
+            if(t == null || t is TileStone || !t.IsFree){
                 return false;
             }
         }

@@ -7,7 +7,7 @@ public class LumbermillStrategy : BuildStrategySO{
             return false;
         }
         foreach(Tile t in tiles){
-            if(t is not TileGrass || !t.IsFree){
+            if(t == null || t is not TileGrass || !t.IsFree){
                 return false;
             }
         }

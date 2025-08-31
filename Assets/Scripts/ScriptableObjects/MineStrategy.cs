@@ -7,7 +7,7 @@ public class MineStrategy : BuildStrategySO{
             return false;
         }
         foreach(Tile t in tiles){
-            if(t is not TileStone || !t.IsFree){
+            if(t == null || t is not TileStone || !t.IsFree){
                 return false;
             }
         }

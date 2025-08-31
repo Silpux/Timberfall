@@ -8,7 +8,7 @@ public class MarketStrategy : BuildStrategySO{
             return false;
         }
         foreach(Tile t in tiles){
-            if(t is not TileGrass and not TileDirt || !t.IsFree){
+            if(t == null || t is not TileGrass and not TileDirt || !t.IsFree){
                 return false;
             }
         }
