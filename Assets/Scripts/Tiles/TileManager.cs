@@ -86,17 +86,17 @@ public class TileManager : MonoBehaviour{
         return (-1, -1);
     }
 
-    private Tile[] GetNeighborTiles(int x, int y){
+    public Tile[] GetNeighborTiles(int x, int y, bool includeSelf = false){
         int width = tilesArray.GetLength(0);
         int height = tilesArray.GetLength(1);
 
-        Tile[] neighbors = new Tile[8];
+        Tile[] neighbors = new Tile[includeSelf ? 9 : 8];
 
         int i = -1;
         for(int dx = -1;dx <= 1;dx++){
             for(int dy = -1;dy <=1;dy++){
 
-                if(dx == 0 && dy == 0){
+                if(dx == 0 && dy == 0 && !includeSelf){
                     continue;
                 }
                 i++;
@@ -126,6 +126,16 @@ public class TileManager : MonoBehaviour{
             }
         }
         return tileGrass;
+    }
+
+    public Tile GetTileAtPosition(Vector3 worldPos){
+        int xIndex = Mathf.RoundToInt((worldPos.x - minPos.x) / tileSize);
+        int zIndex = Mathf.RoundToInt((worldPos.z - minPos.z) / tileSize);
+
+        if(xIndex >= 0 && xIndex < width && zIndex >= 0 && zIndex < height){
+            return tilesArray[xIndex, zIndex];
+        }
+        return null;
     }
 
 }

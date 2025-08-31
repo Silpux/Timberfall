@@ -97,3 +97,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7dba1d126f97744ac07ce83cea2a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 55dd9c6ebf88a6e48a3f0c8dc4eadbf4, type: 2}
+  meshRenderer: {fileID: 2501015241903325371}
