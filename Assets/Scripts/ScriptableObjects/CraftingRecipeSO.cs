@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Recipe", menuName = "Crafting/Recipe")]
+[CreateAssetMenu(fileName = "Recipe", menuName = "Recipe")]
 public class CraftingRecipeSO : ScriptableObject{
 
     [System.Serializable]
