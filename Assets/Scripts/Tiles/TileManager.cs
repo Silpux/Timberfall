@@ -121,7 +121,7 @@ public class TileManager : MonoBehaviour{
         (int x, int y) = GetCoordinatesOfTile(tileGrass);
 
         foreach(Tile tile in GetNeighborTiles(x, y)){
-            if(tile is TileGrass grass && grass.HasTree){
+            if(tile is TileGrass grass && !grass.IsFree){
                 return null;
             }
         }

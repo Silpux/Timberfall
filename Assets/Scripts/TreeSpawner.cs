@@ -19,9 +19,7 @@ public class TreeSpawner : MonoBehaviour{
             if(tile != null){
                 TreeObj treePrefab = treePrefabs[Random.Range(0, treePrefabs.Length)];
 
-                Vector3 spawnPos = tile.transform.position;
-                TreeObj newTree = Instantiate(treePrefab, spawnPos, Quaternion.identity);
-
+                TreeObj newTree = Instantiate(treePrefab);
                 tile.CurrentTree = newTree;
             }
             

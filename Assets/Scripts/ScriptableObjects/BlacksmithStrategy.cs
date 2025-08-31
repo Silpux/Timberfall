@@ -7,13 +7,8 @@ public class BlacksmithStrategy : BuildStrategySO{
             return false;
         }
         foreach(Tile t in tiles){
-            if(t is TileStone){
+            if(t is TileStone || !t.IsFree){
                 return false;
-            }
-            if(t is TileGrass g){
-                if(g.HasTree){
-                    return false;
-                }
             }
         }
         return true;

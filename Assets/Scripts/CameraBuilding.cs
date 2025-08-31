@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -10,6 +11,8 @@ public class CameraBuilding : MonoBehaviour{
     [SerializeField] private TileManager tileManager;
     private List<Tile> selectedTiles = new();
     private IBuildingStrategy buildingStrategy;
+
+    private Tile clickStartTile;
 
     private void Awake(){
         yZeroPlane = new Plane(Vector3.up, Vector3.zero);
@@ -36,11 +39,47 @@ public class CameraBuilding : MonoBehaviour{
     }
 
     private void HandleDown(){
-        
+        if(EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()){
+            LowlightSelected();
+            return;
+        }
+        if(GetMouseGroundPoint(Mouse.current.position.ReadValue(), out var point)){
+            clickStartTile = tileManager.GetTileAtPosition(point);
+        }
     }
 
     private void HandleUp(){
-        
+        if(EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()){
+            LowlightSelected();
+            return;
+        }
+        if(GetMouseGroundPoint(Mouse.current.position.ReadValue(), out var point)){
+            Tile releaseButtonTile = tileManager.GetTileAtPosition(point);
+            if(clickStartTile == releaseButtonTile){
+
+                (int x, int y) = tileManager.GetCoordinatesOfTile(releaseButtonTile);
+                Tile[] tiles = tileManager.GetNeighborTiles(x, y, includeSelf: true);
+
+                bool canPlace = false;
+                if(buildingStrategy != null){
+                    canPlace = buildingStrategy.CanPlace(tiles);
+                }
+                
+                if(canPlace){
+                    PlaceBuilding(releaseButtonTile, tiles);
+                }
+
+            }
+        }
+    }
+
+    private void PlaceBuilding(Tile center, Tile[] tilesToOccupy){
+        GameObject building = Instantiate(buildingStrategy.BuildingPrefab, center.PlacementPoint);
+        building.transform.localPosition = Vector3.zero;
+
+        foreach(Tile t in tilesToOccupy){
+            t.HasBuilding = true;
+        }
     }
 
     public void SetBuildingStrategy(IBuildingStrategy strategy){
@@ -49,6 +88,7 @@ public class CameraBuilding : MonoBehaviour{
 
     private void HandleLook(Vector2 delta){
         if(EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()){
+            LowlightSelected();
             return;
         }
         if(GetMouseGroundPoint(Mouse.current.position.ReadValue(), out var point)){
