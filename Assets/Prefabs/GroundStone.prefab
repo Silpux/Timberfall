@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3634983352350639062}
   - component: {fileID: 4312676443199520125}
   - component: {fileID: 484978230552465683}
+  - component: {fileID: 3613404170844083132}
   m_Layer: 0
   m_Name: GroundStone
   m_TagString: Untagged
@@ -84,3 +85,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3613404170844083132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8239931534380491428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01762c9fa5a17d4ca34994e244d34af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
