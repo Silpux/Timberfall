@@ -19,6 +19,7 @@ public class CameraController : MonoBehaviour{
     }
 
     public void EnableMovementMode(){
+        cameraBuilding.LowlightSelected();
         cameraBuilding.enabled = false;
         cameraMovement.enabled = true;
     }

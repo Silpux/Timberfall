@@ -9,12 +9,6 @@ public class TreeSpawner : MonoBehaviour{
     [SerializeField] private TileManager tileManager;
 
     private void Start(){
-        tileManager = FindObjectOfType<TileManager>();
-        if(tileManager == null){
-            Debug.LogError("TileManager not found in scene!");
-            return;
-        }
-
         StartCoroutine(SpawnTreeRoutine());
     }
 

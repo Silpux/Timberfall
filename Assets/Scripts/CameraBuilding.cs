@@ -9,6 +9,7 @@ public class CameraBuilding : MonoBehaviour{
     private Plane yZeroPlane;
     [SerializeField] private TileManager tileManager;
     private List<Tile> selectedTiles = new();
+    private IBuildingStrategy buildingStrategy;
 
     private void Awake(){
         yZeroPlane = new Plane(Vector3.up, Vector3.zero);
@@ -42,6 +43,10 @@ public class CameraBuilding : MonoBehaviour{
         
     }
 
+    public void SetBuildingStrategy(IBuildingStrategy strategy){
+        buildingStrategy = strategy;
+    }
+
     private void HandleLook(Vector2 delta){
         if(EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()){
             return;
@@ -51,23 +56,28 @@ public class CameraBuilding : MonoBehaviour{
             (int x, int y) = tileManager.GetCoordinatesOfTile(tile);
             Tile[] tiles = tileManager.GetNeighborTiles(x, y, includeSelf: true);
 
-            for(int j = selectedTiles.Count - 1;j >=0;j--){
-                for(int i= 0;i<tiles.Length;i++){
-                    if(tiles[i] == selectedTiles[j]){
-                        goto TileFound;
-                    }
-                }
-                selectedTiles[j].Lowlight();
-                selectedTiles.RemoveAt(j);
-                TileFound:;
+            LowlightSelected();
+
+            bool canPlace = false;
+
+            if(buildingStrategy != null){
+                canPlace = buildingStrategy.CanPlace(tiles);
             }
+
             foreach(Tile t in tiles){
-                if(t != null && !selectedTiles.Contains(t)){
-                    t.Highlight();
+                if(t != null){
+                    t.Highlight(canPlace);
                     selectedTiles.Add(t);
                 }
             }
         }
+    }
+
+    public void LowlightSelected(){
+        foreach(Tile t in selectedTiles){
+            t.Lowlight();
+        }
+        selectedTiles.Clear();
     }
 
     private bool GetMouseGroundPoint(Vector2 mousePos, out Vector3 hitPoint){

@@ -2,7 +2,8 @@ using UnityEngine;
 
 public abstract class Tile : MonoBehaviour{
 
-    [SerializeField] private Material highlightMaterial;
+    [SerializeField] private Material highlightOkMaterial;
+    [SerializeField] private Material highlightNoMaterial;
     private Material defaultMaterial;
     [SerializeField] private MeshRenderer meshRenderer;
 
@@ -10,16 +11,16 @@ public abstract class Tile : MonoBehaviour{
         defaultMaterial = meshRenderer.materials[0];
     }
 
-    public void Highlight(){
-        Material[] mats = meshRenderer.materials;
-        mats[0] = highlightMaterial;
-        meshRenderer.materials = mats;
+    public void Highlight(bool ok){
+        SetMaterial(ok ? highlightOkMaterial : highlightNoMaterial);
+    }
+    public void Lowlight(){
+        SetMaterial(defaultMaterial);
     }
 
-    public void Lowlight(){
-        Debug.Log("Lowlight");
+    private void SetMaterial(Material mat){
         Material[] mats = meshRenderer.materials;
-        mats[0] = defaultMaterial;
+        mats[0] = mat;
         meshRenderer.materials = mats;
     }
 

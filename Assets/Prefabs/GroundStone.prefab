@@ -97,5 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01762c9fa5a17d4ca34994e244d34af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: b7c0462b5c5e7a14c93604540bf1b2e2, type: 2}
+  highlightOkMaterial: {fileID: 2100000, guid: b7c0462b5c5e7a14c93604540bf1b2e2, type: 2}
+  highlightNoMaterial: {fileID: 2100000, guid: 4cff9ab6ffa66c349bd16ad2abacf49b, type: 2}
   meshRenderer: {fileID: 484978230552465683}
