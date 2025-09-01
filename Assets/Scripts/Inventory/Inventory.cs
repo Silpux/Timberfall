@@ -64,4 +64,7 @@ public class Inventory : MonoBehaviour{
     public bool ConfirmBuyingLumbermillWorker(WorkerGrade grade){
         return true;
     }
+    public bool ConfirmBuyingMineWorker(WorkerGrade grade){
+        return true;
+    }
 }

@@ -1,0 +1,636 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5079670388520834078
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 27768510679316445, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6934623435843949811}
+    - target: {fileID: 27768510679316445, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddDiamondWorker
+      objectReference: {fileID: 0}
+    - target: {fileID: 27768510679316445, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BuildingPanel`1[[LumbermillBuilding, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 596432132647240698, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 596432132647240698, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 596432132647240698, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6934623435843949811}
+    - target: {fileID: 596432132647240698, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 596432132647240698, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddIronAxeWorker
+      objectReference: {fileID: 0}
+    - target: {fileID: 596432132647240698, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LumbermillPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 596432132647240698, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 882226883952664584, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_Name
+      value: Diamond
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008108350338976608, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008108350338976608, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008108350338976608, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6934623435843949811}
+    - target: {fileID: 1008108350338976608, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008108350338976608, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddDiamondAxeWorker
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008108350338976608, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LumbermillPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008108350338976608, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383473464264655558, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502051250565142721, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 62c12bb0698ebdc41816de97e58773fe,
+        type: 3}
+    - target: {fileID: 2097721559938646838, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 795b54ad639d29c42aea7a681d49132c,
+        type: 3}
+    - target: {fileID: 2507160188796822156, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_Name
+      value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297402026439793648, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 795b54ad639d29c42aea7a681d49132c,
+        type: 3}
+    - target: {fileID: 3357384136716940633, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6934623435843949811}
+    - target: {fileID: 3357384136716940633, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddStoneWorker
+      objectReference: {fileID: 0}
+    - target: {fileID: 3357384136716940633, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BuildingPanel`1[[LumbermillBuilding, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548588445082477606, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6934623435843949811}
+    - target: {fileID: 3548588445082477606, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddWoodWorker
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548588445082477606, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BuildingPanel`1[[LumbermillBuilding, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649049627696389112, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_text
+      value: Lumbermill workers
+      objectReference: {fileID: 0}
+    - target: {fileID: 3768009077001658184, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3768009077001658184, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3768009077001658184, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6934623435843949811}
+    - target: {fileID: 3768009077001658184, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3768009077001658184, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddWoodAxeWorker
+      objectReference: {fileID: 0}
+    - target: {fileID: 3768009077001658184, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LumbermillPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3768009077001658184, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929524472676279695, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929524472676279695, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929524472676279695, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 228.4107
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929524472676279695, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423649320923132915, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_Name
+      value: Wooden
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734158241825220916, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b9ab3f5da6ebf0745b805e3f7ae80476,
+        type: 3}
+    - target: {fileID: 4820665173279328157, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6934623435843949811}
+    - target: {fileID: 4820665173279328157, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddIronWorker
+      objectReference: {fileID: 0}
+    - target: {fileID: 4820665173279328157, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BuildingPanel`1[[LumbermillBuilding, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673016633184899144, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_Name
+      value: Iron
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378087691922867536, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 300c95fefcdb5e541af777824bea25c9,
+        type: 3}
+    - target: {fileID: 6566697863632708182, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b9ab3f5da6ebf0745b805e3f7ae80476,
+        type: 3}
+    - target: {fileID: 6625639252293678752, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6625639252293678752, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6625639252293678752, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6934623435843949811}
+    - target: {fileID: 6625639252293678752, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6625639252293678752, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddStoneAxeWorker
+      objectReference: {fileID: 0}
+    - target: {fileID: 6625639252293678752, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LumbermillPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6625639252293678752, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740800709808471491, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740800709808471491, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740800709808471491, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6934623435843949811}
+    - target: {fileID: 6740800709808471491, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740800709808471491, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Close
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740800709808471491, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LumbermillPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740800709808471491, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781249649484494923, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 62c12bb0698ebdc41816de97e58773fe,
+        type: 3}
+    - target: {fileID: 8018218864385649584, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 300c95fefcdb5e541af777824bea25c9,
+        type: 3}
+    - target: {fileID: 8239463127066175847, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_Name
+      value: LumbermillPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1077.9597
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 674.2149
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922861886635201167, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 4062188470312597309, guid: 801b49f4f2e53ec42a12cc987fbfef5c, type: 3}
+    - {fileID: 4633863721151914378, guid: 801b49f4f2e53ec42a12cc987fbfef5c, type: 3}
+    - {fileID: 7267927401776858937, guid: 801b49f4f2e53ec42a12cc987fbfef5c, type: 3}
+    - {fileID: 8057302646321705449, guid: 801b49f4f2e53ec42a12cc987fbfef5c, type: 3}
+    - {fileID: 4311520844569962402, guid: 801b49f4f2e53ec42a12cc987fbfef5c, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1383473464264655558, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8617226704238294998}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8239463127066175847, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6934623435843949811}
+  m_SourcePrefab: {fileID: 100100000, guid: 801b49f4f2e53ec42a12cc987fbfef5c, type: 3}
+--- !u!114 &595175042610047801 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5637629058413625127, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5079670388520834078}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &3757947405131038073 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8239463127066175847, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5079670388520834078}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6934623435843949811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3757947405131038073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e09f3693e0cdad4698a19d84fcfc0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  workerEntryPrefab: {fileID: 114869262462731533, guid: 854927c2387215740a5cf0f34efe2731,
+    type: 3}
+  workersListParent: {fileID: 8876942876881773086}
+  costText: {fileID: 595175042610047801}
+--- !u!224 &6146719180679173848 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1383473464264655558, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5079670388520834078}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8876942876881773086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4417927664134927872, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5079670388520834078}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &9202852063052626629
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6146719180679173848}
+    m_Modifications:
+    - target: {fileID: 501624062366408609, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_Name
+      value: LumbermillWorker
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 396.8214
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 854927c2387215740a5cf0f34efe2731, type: 3}
+--- !u!224 &8617226704238294998 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 585911300725067027, guid: 854927c2387215740a5cf0f34efe2731,
+    type: 3}
+  m_PrefabInstance: {fileID: 9202852063052626629}
+  m_PrefabAsset: {fileID: 0}

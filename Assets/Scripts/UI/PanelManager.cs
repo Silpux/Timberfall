@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PanelManager : MonoBehaviour{
@@ -10,6 +9,7 @@ public class PanelManager : MonoBehaviour{
 
     [SerializeField] private GameObject addBuildingPanel;
     [SerializeField] private LumbermillPanel lumbermillPanel;
+    [SerializeField] private MinePanel minePanel;
 
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject inventoryButton;
@@ -30,12 +30,12 @@ public class PanelManager : MonoBehaviour{
         inventoryButton.SetActive(false);
         addBuildingsButton.SetActive(false);
     }
+
     public void EnableButtons(){
         pauseButton.SetActive(true);
         inventoryButton.SetActive(true);
         addBuildingsButton.SetActive(true);
     }
-
 
     public void OpenAddBuildingPanel(){
         DisableButtons();
@@ -53,12 +53,25 @@ public class PanelManager : MonoBehaviour{
         DisableButtons();
         cameraController.DisableAllModes();
         lumbermillPanel.gameObject.SetActive(true);
-        lumbermillPanel.SetLumbermillBuilding(sender);
+        lumbermillPanel.SetBuilding(sender);
     }
 
     public void CloseLumbermillPanel(){
         EnableButtons();
         lumbermillPanel.gameObject.SetActive(false);
+        cameraController.EnableMovementMode();
+    }
+
+    public void OpenMinePanel(MineBuilding sender){
+        DisableButtons();
+        cameraController.DisableAllModes();
+        minePanel.gameObject.SetActive(true);
+        minePanel.SetBuilding(sender);
+    }
+
+    public void CloseMinePanel(){
+        EnableButtons();
+        minePanel.gameObject.SetActive(false);
         cameraController.EnableMovementMode();
     }
 
