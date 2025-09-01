@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -79,6 +78,7 @@ public class CameraBuilding : MonoBehaviour{
 
         foreach(Tile t in tilesToOccupy){
             t.HasBuilding = true;
+            building.OccupiedTiles.Add(t);
         }
     }
 

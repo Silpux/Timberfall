@@ -9,4 +9,9 @@ public abstract class WorkerBuilding : Building{
     public void RemoveWorker(Worker worker){
         Workers.Remove(worker);
     }
+
+    public override void Remove(){
+        base.Remove();
+        Destroy(gameObject);
+    }
 }
