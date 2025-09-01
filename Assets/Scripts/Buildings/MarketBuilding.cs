@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MarketBuilding : Building{
+public class MarketBuilding : ExchangeBuilding{
     public override void OnClick(){
         Debug.Log("Open market");
     }

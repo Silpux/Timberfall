@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Blacksmith Strategy", menuName = "Building Strategies/Blacksmith Strategy")]
-public class BlacksmithStrategy : BuildStrategySO{
+[CreateAssetMenu(fileName = "Forge Strategy", menuName = "Building Strategies/Forge Strategy")]
+public class ForgeStrategy : BuildStrategySO{
     public override bool CanPlace(Tile[] tiles){
         if(tiles.Length != 9){
             return false;

@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 5495010025346972189}
   - component: {fileID: 2198217342141451482}
   m_Layer: 0
-  m_Name: Blacksmith
+  m_Name: Forge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

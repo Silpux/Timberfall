@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BlacksmithBuilding : Building{
+public class ForgeBuilding : ExchangeBuilding{
     public override void OnClick(){
         Debug.Log("Open blacksmith");
     }
