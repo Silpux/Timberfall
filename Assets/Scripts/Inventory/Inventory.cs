@@ -60,4 +60,8 @@ public class Inventory : MonoBehaviour{
     public IEnumerable<InventorySlot> GetInventorySlots(){
         return slots.OrderBy(s => s.Item.itemType);
     }
+
+    public bool ConfirmBuyingLumbermillWorker(WorkerGrade grade){
+        return true;
+    }
 }
