@@ -56,8 +56,9 @@ public class CameraBuilding : MonoBehaviour{
             Tile releaseButtonTile = tileManager.GetTileAtPosition(point);
             if(clickStartTile == releaseButtonTile){
 
-                (int x, int y) = tileManager.GetCoordinatesOfTile(releaseButtonTile);
-                Tile[] tiles = tileManager.GetNeighborTiles(x, y, includeSelf: true);
+                int tileX = (int)releaseButtonTile.Position.x;
+                int tileY = (int)releaseButtonTile.Position.y;
+                Tile[] tiles = tileManager.GetNeighborTiles(tileX, tileY, includeSelf: true);
 
                 bool canPlace = false;
                 if(buildingStrategy != null){
@@ -93,10 +94,16 @@ public class CameraBuilding : MonoBehaviour{
         }
         if(GetMouseGroundPoint(Mouse.current.position.ReadValue(), out var point)){
             Tile tile = tileManager.GetTileAtPosition(point);
-            (int x, int y) = tileManager.GetCoordinatesOfTile(tile);
-            Tile[] tiles = tileManager.GetNeighborTiles(x, y, includeSelf: true);
 
             LowlightSelected();
+            if(tile == null){
+                return;
+            }
+
+            int tileX = (int)tile.Position.x;
+            int tileY = (int)tile.Position.y;
+
+            Tile[] tiles = tileManager.GetNeighborTiles(tileX, tileY, includeSelf: true);
 
             bool canPlace = false;
 

@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Net.Http.Headers;
 using UnityEngine;
 
 public class TileManager : MonoBehaviour{
@@ -71,19 +69,10 @@ public class TileManager : MonoBehaviour{
             }
 
             tilesArray[xIndex, zIndex] = t;
+            t.Position = new Vector2(xIndex, zIndex);
+
         }
 
-    }
-
-    public (int x, int y) GetCoordinatesOfTile(Tile tile){
-        for (int i = 0; i < tilesArray.GetLength(0); i++){
-            for (int j = 0; j < tilesArray.GetLength(1); j++){
-                if (tilesArray[i,j] == tile){
-                    return (i, j);
-                }
-            }
-        }
-        return (-1, -1);
     }
 
     public Tile[] GetNeighborTiles(int x, int y, bool includeSelf = false){
@@ -118,9 +107,11 @@ public class TileManager : MonoBehaviour{
     public TileGrass GetTileForTree(){
         if(grassTiles.Count == 0) return null;
         TileGrass tileGrass = grassTiles[UnityEngine.Random.Range(0, grassTiles.Count)];
-        (int x, int y) = GetCoordinatesOfTile(tileGrass);
 
-        foreach(Tile tile in GetNeighborTiles(x, y)){
+        int tileX = (int)tileGrass.Position.x;
+        int tileY = (int)tileGrass.Position.y;
+
+        foreach(Tile tile in GetNeighborTiles(tileX, tileY)){
             if(tile is TileGrass grass && !grass.IsFree){
                 return null;
             }

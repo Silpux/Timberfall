@@ -13,6 +13,7 @@ public class GameInput : MonoBehaviour{
     public event Action OnLeftButtonUp;
 
     public event Action<Vector2> OnLookPerformed;
+    public event Action<int> OnScrollPerformed;
 
     private void Awake(){
  
@@ -35,6 +36,8 @@ public class GameInput : MonoBehaviour{
 
         actions.Player.Look.performed += RaiseLookPerformed;
 
+        actions.Player.Zoom.performed += RaiseZoomPerformed;
+
     }
 
     private void OnDisable(){
@@ -45,7 +48,18 @@ public class GameInput : MonoBehaviour{
         actions.Player.Click.canceled -= RaiseLeftButtonUp;
 
         actions.Player.Look.performed -= RaiseLookPerformed;
+        actions.Player.Zoom.performed -= RaiseZoomPerformed;
     }
+
+
+    private void RaiseZoomPerformed(InputAction.CallbackContext context){
+        float val = context.ReadValue<Vector2>().y;
+        int scroll = 0;
+        if(val > 0) scroll = 1;
+        if(val < 0) scroll = -1;
+        OnScrollPerformed?.Invoke(scroll);
+    }
+
 
     private void RaiseLeftButtonDown(InputAction.CallbackContext context){
         OnLeftButtonDown?.Invoke();

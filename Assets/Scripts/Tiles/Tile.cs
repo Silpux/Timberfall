@@ -8,6 +8,8 @@ public abstract class Tile : MonoBehaviour{
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private Transform placementPoint;
 
+    public Vector2 Position{get; set;}
+
     public Transform PlacementPoint => placementPoint;
 
     public bool HasBuilding {get; set;}

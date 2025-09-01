@@ -12,6 +12,8 @@ public class CameraMovement : MonoBehaviour{
 
     [SerializeField] private Vector2 cameraMinXZ;
     [SerializeField] private Vector2 cameraMaxXZ;
+    [SerializeField] private float cameraMinY;
+    [SerializeField] private float cameraMaxY;
     [SerializeField] private float maxOffsetToDetectClick = 5f;
 
     private void Awake(){
@@ -29,12 +31,19 @@ public class CameraMovement : MonoBehaviour{
         GameInput.Instance.OnLeftButtonDown += HandleDown;
         GameInput.Instance.OnLeftButtonUp += HandleUp;
         GameInput.Instance.OnLookPerformed += HandleLook;
+        GameInput.Instance.OnScrollPerformed += HandleZoom;
     }
 
     private void OnDisable(){
         GameInput.Instance.OnLeftButtonDown -= HandleDown;
         GameInput.Instance.OnLeftButtonUp -= HandleUp;
         GameInput.Instance.OnLookPerformed -= HandleLook;
+        GameInput.Instance.OnScrollPerformed -= HandleZoom;
+    }
+
+    private void HandleZoom(int zoom){
+        float newY = Mathf.Clamp(transform.position.y - zoom, cameraMinY, cameraMaxY);
+        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
     }
 
     private void HandleDown(){

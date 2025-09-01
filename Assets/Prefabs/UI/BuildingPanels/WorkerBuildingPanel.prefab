@@ -1378,6 +1378,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Remove
       objectReference: {fileID: 0}
+    - target: {fileID: 3766792687186389382, guid: b7c140854f6b3fa4ba1adc946a73bc40,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c85a5add403ec744fa0f844a922a32d5,
+        type: 3}
     - target: {fileID: 4091982528013362813, guid: b7c140854f6b3fa4ba1adc946a73bc40,
         type: 3}
       propertyPath: m_Pivot.x
