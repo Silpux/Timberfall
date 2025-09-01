@@ -14,6 +14,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 391188582a09fd4499fc2dcfe7909ea6,
         type: 3}
+    - target: {fileID: 4525280058967013379, guid: f7a9b1a488161024fa334274b6c8d171,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7032851271732865055}
+    - target: {fileID: 4525280058967013379, guid: f7a9b1a488161024fa334274b6c8d171,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Close
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525280058967013379, guid: f7a9b1a488161024fa334274b6c8d171,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WorkerEntry, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5978330642257310433, guid: f7a9b1a488161024fa334274b6c8d171,
         type: 3}
       propertyPath: m_Name
