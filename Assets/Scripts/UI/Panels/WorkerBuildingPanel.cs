@@ -31,7 +31,7 @@ public abstract class WorkerBuildingPanel<B> : BuildingPanel<B> where B : Worker
     }
 
     public override void RemoveBuilding(){
-        base.RemoveBuilding();
+        Close();
         building.Remove();
     }
 

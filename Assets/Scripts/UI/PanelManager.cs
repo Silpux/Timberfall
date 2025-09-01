@@ -7,7 +7,7 @@ public class PanelManager : MonoBehaviour{
 
     [SerializeField] private CameraController cameraController;
 
-    [SerializeField] private GameObject addBuildingPanel;
+    [SerializeField] private AddBuildingPanel addBuildingPanel;
     [SerializeField] private LumbermillPanel lumbermillPanel;
     [SerializeField] private MinePanel minePanel;
 
@@ -39,13 +39,13 @@ public class PanelManager : MonoBehaviour{
 
     public void OpenAddBuildingPanel(){
         DisableButtons();
-        addBuildingPanel.SetActive(true);
+        addBuildingPanel.gameObject.SetActive(true);
         cameraController.EnableBuildingMode();
     }
 
     public void CloseAddBuildingPanel(){
         EnableButtons();
-        addBuildingPanel.SetActive(false);
+        addBuildingPanel.gameObject.SetActive(false);
         cameraController.EnableMovementMode();
     }
 

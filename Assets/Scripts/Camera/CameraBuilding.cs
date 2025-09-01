@@ -9,7 +9,7 @@ public class CameraBuilding : MonoBehaviour{
     private Plane yZeroPlane;
     [SerializeField] private TileManager tileManager;
     private List<Tile> selectedTiles = new();
-    private IBuildingStrategy buildingStrategy;
+    public IBuildingStrategy BuildingStrategy{private get; set;}
 
     private Tile clickStartTile;
 
@@ -53,38 +53,36 @@ public class CameraBuilding : MonoBehaviour{
             return;
         }
         if(GetMouseGroundPoint(Mouse.current.position.ReadValue(), out var point)){
-            Tile releaseButtonTile = tileManager.GetTileAtPosition(point);
-            if(clickStartTile == releaseButtonTile){
+            if(clickStartTile != null){
+                Tile releaseButtonTile = tileManager.GetTileAtPosition(point);
+                if(clickStartTile == releaseButtonTile){
 
-                int tileX = (int)releaseButtonTile.Position.x;
-                int tileY = (int)releaseButtonTile.Position.y;
-                Tile[] tiles = tileManager.GetNeighborTiles(tileX, tileY, includeSelf: true);
+                    int tileX = (int)releaseButtonTile.Position.x;
+                    int tileY = (int)releaseButtonTile.Position.y;
+                    Tile[] tiles = tileManager.GetNeighborTiles(tileX, tileY, includeSelf: true);
 
-                bool canPlace = false;
-                if(buildingStrategy != null){
-                    canPlace = buildingStrategy.CanPlace(tiles);
+                    bool canPlace = false;
+                    if(BuildingStrategy != null){
+                        canPlace = BuildingStrategy.CanPlace(tiles);
+                    }
+                    
+                    if(canPlace){
+                        PlaceBuilding(releaseButtonTile, tiles);
+                    }
+
                 }
-                
-                if(canPlace){
-                    PlaceBuilding(releaseButtonTile, tiles);
-                }
-
             }
         }
     }
 
     private void PlaceBuilding(Tile center, Tile[] tilesToOccupy){
-        Building building = Instantiate(buildingStrategy.BuildingPrefab, center.PlacementPoint);
+        Building building = Instantiate(BuildingStrategy.BuildingPrefab, center.PlacementPoint);
         building.transform.localPosition = Vector3.zero;
 
         foreach(Tile t in tilesToOccupy){
             t.HasBuilding = true;
             building.OccupiedTiles.Add(t);
         }
-    }
-
-    public void SetBuildingStrategy(IBuildingStrategy strategy){
-        buildingStrategy = strategy;
     }
 
     private void HandleLook(Vector2 delta){
@@ -107,8 +105,8 @@ public class CameraBuilding : MonoBehaviour{
 
             bool canPlace = false;
 
-            if(buildingStrategy != null){
-                canPlace = buildingStrategy.CanPlace(tiles);
+            if(BuildingStrategy != null){
+                canPlace = BuildingStrategy.CanPlace(tiles);
             }
 
             foreach(Tile t in tiles){
