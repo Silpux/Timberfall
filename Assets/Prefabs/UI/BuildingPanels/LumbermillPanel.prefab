@@ -511,17 +511,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   workerEntryPrefab: {fileID: 114869262462731533, guid: 854927c2387215740a5cf0f34efe2731,
     type: 3}
-  workersListParent: {fileID: 8876942876881773086}
+  workersListParent: {fileID: 6146719180679173848}
   costText: {fileID: 595175042610047801}
 --- !u!224 &6146719180679173848 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1383473464264655558, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
-    type: 3}
-  m_PrefabInstance: {fileID: 5079670388520834078}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8876942876881773086 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4417927664134927872, guid: 801b49f4f2e53ec42a12cc987fbfef5c,
     type: 3}
   m_PrefabInstance: {fileID: 5079670388520834078}
   m_PrefabAsset: {fileID: 0}

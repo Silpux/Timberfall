@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class WorkerBuildingPanel<B> : BuildingPanel<B> where B : WorkerBuilding{
 
     [SerializeField] private WorkerEntry workerEntryPrefab;
-    [SerializeField] private GameObject workersListParent;
+    [SerializeField] private Transform workersListParent;
     [SerializeField] private TextMeshProUGUI costText;
 
     public override void SetBuilding(B building){
@@ -18,14 +18,14 @@ public abstract class WorkerBuildingPanel<B> : BuildingPanel<B> where B : Worker
 
     public void FillWorkersUI(){
         foreach(var w in building.Workers){
-            WorkerEntry newEntry = Instantiate(workerEntryPrefab, workersListParent.transform);
+            WorkerEntry newEntry = Instantiate(workerEntryPrefab, workersListParent);
             newEntry.SetWorker(w);
             newEntry.OnRemove += RefreshUI;
         }
     }
 
     public override void ResetUI(){
-        foreach(Transform child in workersListParent.transform){
+        foreach(Transform child in workersListParent){
             Destroy(child.gameObject);
         }
     }

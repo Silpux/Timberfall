@@ -11,6 +11,10 @@ public class PanelManager : MonoBehaviour{
     [SerializeField] private LumbermillPanel lumbermillPanel;
     [SerializeField] private MinePanel minePanel;
 
+    
+    [SerializeField] private MarketPanel marketPanel;
+    [SerializeField] private ForgePanel forgePanel;
+
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject inventoryButton;
     [SerializeField] private GameObject addBuildingsButton;
@@ -48,6 +52,33 @@ public class PanelManager : MonoBehaviour{
         addBuildingPanel.gameObject.SetActive(false);
         cameraController.EnableMovementMode();
     }
+
+    public void OpenMarketPanel(MarketBuilding sender){
+        DisableButtons();
+        cameraController.DisableAllModes();
+        marketPanel.gameObject.SetActive(true);
+        marketPanel.SetBuilding(sender);
+    }
+
+    public void CloseMarketPanel(){
+        EnableButtons();
+        marketPanel.gameObject.SetActive(false);
+        cameraController.EnableMovementMode();
+    }
+
+    public void OpenForgePanel(ForgeBuilding sender){
+        DisableButtons();
+        cameraController.DisableAllModes();
+        forgePanel.gameObject.SetActive(true);
+        forgePanel.SetBuilding(sender);
+    }
+
+    public void CloseForgePanel(){
+        EnableButtons();
+        forgePanel.gameObject.SetActive(false);
+        cameraController.EnableMovementMode();
+    }
+
 
     public void OpenLumbermillPanel(LumbermillBuilding sender){
         DisableButtons();

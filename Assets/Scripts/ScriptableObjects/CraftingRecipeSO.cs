@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Recipe", menuName = "Recipe")]
@@ -11,9 +12,10 @@ public class CraftingRecipeSO : ScriptableObject{
         public int Amount => amount;
     }
 
-    [SerializeField] private Ingredient[] inputs;
-    [SerializeField] private ItemDataSO outputItem;
-    [SerializeField] private int outputAmount = 1;
+    [SerializeField] private List<Ingredient> inputs;
+    public IReadOnlyList<Ingredient> Inputs => inputs;
+    [SerializeField] private Ingredient output;
+    public Ingredient Output => output;
 
     public bool CanCraft(Inventory inventory){
         foreach(var ingredient in inputs){
@@ -32,15 +34,17 @@ public class CraftingRecipeSO : ScriptableObject{
         return true;
     }
 
-    public void Craft(Inventory inventory){
+    public bool Craft(Inventory inventory){
         if(!CanCraft(inventory)){
-            return;
+            return false;
         }
 
         foreach(var ingredient in inputs){
             inventory.RemoveItem(ingredient.Item, ingredient.Amount);
         }
 
-        inventory.AddItem(outputItem, outputAmount);
+        inventory.AddItem(output.Item, output.Amount);
+
+        return true;
     }
 }
