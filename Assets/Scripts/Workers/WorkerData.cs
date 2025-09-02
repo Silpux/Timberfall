@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public abstract class Worker{
+public abstract class WorkerData{
     public WorkerGrade Grade{get; private set;}
     public WorkerBuildingBase Building{get;set;}
 
-    public Worker(WorkerGrade grade){
+    public WorkerData(WorkerGrade grade){
         Grade = grade;
     }
 

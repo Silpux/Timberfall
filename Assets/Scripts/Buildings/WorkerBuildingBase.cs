@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 
 public abstract class WorkerBuildingBase : Building{
-    public List<Worker> Workers{get;} = new();
+    public List<WorkerData> Workers{get;} = new();
     public abstract int GetCostForNextWorker();
     public abstract bool AddWorker(WorkerGrade grade);
-    public void RemoveWorker(Worker worker){
+    public void RemoveWorker(WorkerData worker){
         Workers.Remove(worker);
     }
     public override void Remove(){
