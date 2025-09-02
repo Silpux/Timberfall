@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ExchangeEntry : MonoBehaviour{
 
-    [SerializeField] private List<ExchangeSlot> inputSlots;
-    [SerializeField] private ExchangeSlot outputSlot;
+    [SerializeField] private List<ItemSlot> inputSlots;
+    [SerializeField] private ItemSlot outputSlot;
 
     private CraftingRecipeSO currentRecipe;
 
     public void ResetData(){
-        foreach(ExchangeSlot slot in inputSlots){
+        foreach(ItemSlot slot in inputSlots){
             slot.gameObject.SetActive(false);
         }
         outputSlot.gameObject.SetActive(false);
@@ -24,17 +24,17 @@ public class ExchangeEntry : MonoBehaviour{
 
         for(int i = 2, j = 0; j<slotsToUpdate && i > 0; i--,j++){
             inputSlots[i].gameObject.SetActive(true);
-            inputSlots[i].SetExchangeData(recipe.Inputs[j]);
+            inputSlots[i].Slot = recipe.Inputs[j];
         }
 
         outputSlot.gameObject.SetActive(true);
-        outputSlot.SetExchangeData(recipe.Output);
+        outputSlot.Slot = recipe.Output;
 
         currentRecipe = recipe;
     }
 
     public void Exchange(){
-        if(currentRecipe.Craft(Inventory.Instance)){
+        if(Inventory.Instance.Exchange(currentRecipe)){
             ;
         }
     }

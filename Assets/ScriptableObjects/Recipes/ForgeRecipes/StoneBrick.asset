@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: StoneBrick
   m_EditorClassIdentifier: 
   inputs:
-  - item: {fileID: 11400000, guid: 471b2815d47319f42ba2883415baa636, type: 2}
-    amount: 5
+  - <Item>k__BackingField: {fileID: 11400000, guid: 471b2815d47319f42ba2883415baa636,
+      type: 2}
+    <Amount>k__BackingField: 5
   output:
-    item: {fileID: 11400000, guid: ed2d0df8323f5ef48b2a1f687d8d29f8, type: 2}
-    amount: 1
+    <Item>k__BackingField: {fileID: 11400000, guid: ed2d0df8323f5ef48b2a1f687d8d29f8,
+      type: 2}
+    <Amount>k__BackingField: 1

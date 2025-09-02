@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: PolishedDiamond
   m_EditorClassIdentifier: 
   inputs:
-  - item: {fileID: 11400000, guid: db14c19390575184cb77e0dc08310ddf, type: 2}
-    amount: 5
+  - <Item>k__BackingField: {fileID: 11400000, guid: db14c19390575184cb77e0dc08310ddf,
+      type: 2}
+    <Amount>k__BackingField: 5
   output:
-    item: {fileID: 11400000, guid: 87178e60b8b1b344581f96be18622785, type: 2}
-    amount: 1
+    <Item>k__BackingField: {fileID: 11400000, guid: 87178e60b8b1b344581f96be18622785,
+      type: 2}
+    <Amount>k__BackingField: 1

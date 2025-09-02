@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: WoodenAxe
   m_EditorClassIdentifier: 
   inputs:
-  - item: {fileID: 11400000, guid: 33a679513983a2944b0b8274fbff02dd, type: 2}
-    amount: 4
-  - item: {fileID: 11400000, guid: d06b99283e8e9da42ae73d51c2d310b3, type: 2}
-    amount: 4
+  - <Item>k__BackingField: {fileID: 11400000, guid: 33a679513983a2944b0b8274fbff02dd,
+      type: 2}
+    <Amount>k__BackingField: 4
+  - <Item>k__BackingField: {fileID: 11400000, guid: d06b99283e8e9da42ae73d51c2d310b3,
+      type: 2}
+    <Amount>k__BackingField: 4
   output:
-    item: {fileID: 11400000, guid: 18526e1688ad17849b625db5aa985d4c, type: 2}
-    amount: 1
+    <Item>k__BackingField: {fileID: 11400000, guid: 18526e1688ad17849b625db5aa985d4c,
+      type: 2}
+    <Amount>k__BackingField: 1

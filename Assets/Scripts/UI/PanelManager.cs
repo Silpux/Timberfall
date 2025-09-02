@@ -14,6 +14,7 @@ public class PanelManager : MonoBehaviour{
     
     [SerializeField] private MarketPanel marketPanel;
     [SerializeField] private ForgePanel forgePanel;
+    [SerializeField] private InventoryPanel inventoryPanel;
 
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject inventoryButton;
@@ -50,6 +51,19 @@ public class PanelManager : MonoBehaviour{
     public void CloseAddBuildingPanel(){
         EnableButtons();
         addBuildingPanel.gameObject.SetActive(false);
+        cameraController.EnableMovementMode();
+    }
+
+    public void OpenInventoryPanel(){
+        DisableButtons();
+        cameraController.DisableAllModes();
+        inventoryPanel.gameObject.SetActive(true);
+        inventoryPanel.RefreshUI();
+    }
+
+    public void CloseInventoryPanel(){
+        EnableButtons();
+        inventoryPanel.gameObject.SetActive(false);
         cameraController.EnableMovementMode();
     }
 

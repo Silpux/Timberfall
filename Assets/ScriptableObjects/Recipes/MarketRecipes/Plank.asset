@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Plank
   m_EditorClassIdentifier: 
   inputs:
-  - item: {fileID: 11400000, guid: 16215feff03fa7447bea3edb837692be, type: 2}
-    amount: 4
+  - <Item>k__BackingField: {fileID: 11400000, guid: 16215feff03fa7447bea3edb837692be,
+      type: 2}
+    <Amount>k__BackingField: 4
   output:
-    item: {fileID: 11400000, guid: d06b99283e8e9da42ae73d51c2d310b3, type: 2}
-    amount: 4
+    <Item>k__BackingField: {fileID: 11400000, guid: d06b99283e8e9da42ae73d51c2d310b3,
+      type: 2}
+    <Amount>k__BackingField: 4

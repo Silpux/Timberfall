@@ -3,26 +3,14 @@ using UnityEngine;
 
 [Serializable]
 public class InventorySlot{
-    public ItemDataSO Item{get; set;}
-    public int Count{get; private set;}
 
-    public bool IsEmpty => Item == null || Item.itemType == ItemType.None || Count <= 0;
+    [field: SerializeField] public ItemDataSO Item{get; private set;}
+    [field: SerializeField] public int Amount{get; set;}
 
-    public void AddItem(ItemDataSO newItem, int amount){
-        if(Item == null || Item.itemType == ItemType.None){
-            Item = newItem;
-            Count = amount;
-        }
-        else if(Item == newItem){
-            Count += amount;
-        }
-    }
+    public bool IsEmpty => Item == null || Item.ItemType == ItemType.None || Amount <= 0;
 
-    public bool RemoveItem(int amount){
-        if(Item == null || Count < amount){
-            return false;
-        }
-        Count -= amount;
-        return true;
+    public InventorySlot(ItemDataSO data, int amount){
+        Item = data;
+        Amount = amount;
     }
 }

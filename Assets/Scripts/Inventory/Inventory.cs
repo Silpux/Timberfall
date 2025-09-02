@@ -8,10 +8,11 @@ public class Inventory : MonoBehaviour{
     public static Inventory Instance => instance;
     private static Inventory instance;
 
-    private int slotCount = 20;
     private List<InventorySlot> slots = new List<InventorySlot>();
 
     public event Action OnInventoryUpdate;
+
+    [SerializeField] private ItemDataSO testItem;
 
     private void Awake(){
 
@@ -20,45 +21,84 @@ public class Inventory : MonoBehaviour{
             return;
         }
         instance = this;
-
-        for(int i=0; i<slotCount; i++){
-            slots.Add(new InventorySlot());
-        }
     }
 
-    public bool AddItem(ItemDataSO item, int amount){
+    [ContextMenu("Add test item")]
+    public void AddTestItem(){
+        AddItem(testItem, 123);
+    }
+    [ContextMenu("Remove test item")]
+    public void RemoveTestItem(){
+        RemoveItem(testItem, 123);
+    }
+
+
+    public void AddItem(ItemDataSO item, int amount){
+
+        if(item == null || item.ItemType == ItemType.None){
+            return;
+        }
+
         foreach(var slot in slots){
             if(slot.Item == item){
-                slot.AddItem(item, amount);
+                slot.Amount += amount;
                 OnInventoryUpdate?.Invoke();
-                return true;
+                return;
             }
         }
 
-        foreach(var slot in slots){
-            if(slot.IsEmpty){
-                slot.AddItem(item, amount);
-                OnInventoryUpdate?.Invoke();
-                return true;
-            }
-        }
+        slots.Add(new InventorySlot(item, amount));
+        OnInventoryUpdate?.Invoke();
 
-        return false;
     }
 
-    public bool RemoveItem(ItemDataSO item, int amount){
-        foreach(var slot in slots){
-            if(slot.Item == item && slot.Count >= amount){
-                slot.RemoveItem(amount);
+    public void RemoveItem(ItemDataSO item, int amount){
+
+        if(item == null || item.ItemType == ItemType.None){
+            return;
+        }
+
+        for(int i = slots.Count-1;i>=0;i--){
+            if(slots[i].Item.ItemType == item.ItemType){
+                slots[i].Amount -= amount;
+                if(slots[i].IsEmpty){
+                    slots.Remove(slots[i]);
+                }
                 OnInventoryUpdate?.Invoke();
-                return true;
             }
         }
-        return false;
+    }
+
+    public bool CanExchange(CraftingRecipeSO recipe){
+        foreach(var ingredient in recipe.Inputs){
+            foreach(var slot in slots){
+                if(slot.Item == ingredient.Item){
+                    if(slot.Amount < ingredient.Amount){
+                        return false;
+                    }
+                    break;
+                }
+            }
+        }
+        return true;
+    }
+
+    public bool Exchange(CraftingRecipeSO recipe){
+        if(!CanExchange(recipe)){
+            return false;
+        }
+
+        foreach(var ingredient in recipe.Inputs){
+            RemoveItem(ingredient.Item, ingredient.Amount);
+        }
+
+        AddItem(recipe.Output.Item, recipe.Output.Amount);
+
+        return true;
     }
 
     public IEnumerable<InventorySlot> GetInventorySlots(){
-        return slots.OrderBy(s => s.Item.itemType);
+        return slots.OrderBy(s => s.Item.ItemType);
     }
 
     public bool ConfirmBuyingLumbermillWorker(WorkerGrade grade){

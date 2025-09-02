@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: IronIngot
   m_EditorClassIdentifier: 
   inputs:
-  - item: {fileID: 11400000, guid: 49519de3936d10041960946cce047410, type: 2}
-    amount: 5
+  - <Item>k__BackingField: {fileID: 11400000, guid: 49519de3936d10041960946cce047410,
+      type: 2}
+    <Amount>k__BackingField: 5
   output:
-    item: {fileID: 11400000, guid: 7bc9fdc87afe3ff449c3cb045d2c1a53, type: 2}
-    amount: 1
+    <Item>k__BackingField: {fileID: 11400000, guid: 7bc9fdc87afe3ff449c3cb045d2c1a53,
+      type: 2}
+    <Amount>k__BackingField: 1
