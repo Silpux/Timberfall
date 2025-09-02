@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour{
     public event Action OnInventoryUpdate;
 
     [SerializeField] private ItemDataSO testItem;
+    [SerializeField] private int testItemAmount;
 
     private void Awake(){
 
@@ -26,11 +27,11 @@ public class Inventory : MonoBehaviour{
 
     [ContextMenu("Add test item")]
     public void AddTestItem(){
-        AddItem(testItem, 123);
+        AddItem(testItem, testItemAmount);
     }
     [ContextMenu("Remove test item")]
     public void RemoveTestItem(){
-        RemoveItem(testItem, 123);
+        RemoveItem(testItem, testItemAmount);
     }
 
 
@@ -102,6 +103,15 @@ public class Inventory : MonoBehaviour{
 
     public IEnumerable<InventorySlot> GetInventorySlots(){
         return slots.OrderBy(s => s.Item.ItemType);
+    }
+
+    public int GetItemAmount(ItemType itemType){
+        foreach(InventorySlot slot in slots){
+            if(slot.Item.ItemType == itemType){
+                return slot.Amount;
+            }
+        }
+        return 0;
     }
 
     public bool CanBuyLumbermillWorker(WorkerGrade grade){
