@@ -16,7 +16,7 @@ public class TreeSpawner : MonoBehaviour{
         while (true){
 
             TileGrass tile = tileManager.GetTileForTree();
-            if(tile != null){
+            if(tile != null && tile.IsFree){
                 TreeObj treePrefab = treePrefabs[Random.Range(0, treePrefabs.Length)];
 
                 TreeObj newTree = Instantiate(treePrefab);
