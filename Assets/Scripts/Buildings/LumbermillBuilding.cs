@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LumbermillBuilding : WorkerBuilding{
+public class LumbermillBuilding : WorkerBuilding<LumbermillWorker>{
 
     public override void OnClick(){
         Debug.Log("Open lumbermill");
@@ -11,7 +11,7 @@ public class LumbermillBuilding : WorkerBuilding{
 
     public override bool AddWorker(WorkerGrade grade){
         if(Inventory.Instance.CanBuyLumbermillWorker(grade)){
-            Worker newWorker = new Worker(grade){
+            LumbermillWorker newWorker = new LumbermillWorker(grade){
                 Building = this
             };
             Workers.Add(newWorker);

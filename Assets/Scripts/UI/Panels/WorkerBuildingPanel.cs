@@ -2,11 +2,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class WorkerBuildingPanel<B> : BuildingPanel<B> where B : WorkerBuilding{
+public abstract class WorkerBuildingPanel<B> : BuildingPanel<B> where B : WorkerBuildingBase{
 
-    [SerializeField] private WorkerEntry workerEntryPrefab;
-    [SerializeField] private Transform workersListParent;
-    [SerializeField] private TextMeshProUGUI costText;
+    [SerializeField] protected WorkerEntry workerEntryPrefab;
+    [SerializeField] protected Transform workersListParent;
+    [SerializeField] protected TextMeshProUGUI costText;
 
     [SerializeField] protected Image buyWoodenWorkerButtonBackground;
     [SerializeField] protected Image buyStoneWorkerButtonBackground;
