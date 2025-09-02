@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class WorkerBuildingPanel<B> : BuildingPanel<B> where B : WorkerBuilding{
 
@@ -7,11 +8,20 @@ public abstract class WorkerBuildingPanel<B> : BuildingPanel<B> where B : Worker
     [SerializeField] private Transform workersListParent;
     [SerializeField] private TextMeshProUGUI costText;
 
+    [SerializeField] protected Image buyWoodenWorkerButtonBackground;
+    [SerializeField] protected Image buyStoneWorkerButtonBackground;
+    [SerializeField] protected Image buyIronWorkerButtonBackground;
+    [SerializeField] protected Image buyDiamondWorkerButtonBackground;
+
+    [SerializeField] protected Sprite backgroundOkSprite;
+    [SerializeField] protected Sprite backgroundNoSprite;
+
     public override void SetBuilding(B building){
         ResetUI();
         this.building = building;
         FillWorkersUI();
         costText.text = building.GetCostForNextWorker().ToString();
+        UpdateBuyWorkerButtons();
     }
 
     public override void RefreshUI() => SetBuilding(building);
@@ -23,6 +33,16 @@ public abstract class WorkerBuildingPanel<B> : BuildingPanel<B> where B : Worker
             newEntry.OnRemove += RefreshUI;
         }
     }
+
+    private void OnEnable(){
+        Inventory.Instance.OnInventoryUpdate += UpdateBuyWorkerButtons;
+    }
+
+    private void OnDisable(){
+        Inventory.Instance.OnInventoryUpdate -= UpdateBuyWorkerButtons;
+    }
+
+    protected abstract void UpdateBuyWorkerButtons();
 
     public override void ResetUI(){
         foreach(Transform child in workersListParent){

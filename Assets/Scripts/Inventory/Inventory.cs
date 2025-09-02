@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour{
@@ -76,9 +77,11 @@ public class Inventory : MonoBehaviour{
                     if(slot.Amount < ingredient.Amount){
                         return false;
                     }
-                    break;
+                    goto FoundItem;
                 }
             }
+            return false;
+            FoundItem:;
         }
         return true;
     }
@@ -101,10 +104,10 @@ public class Inventory : MonoBehaviour{
         return slots.OrderBy(s => s.Item.ItemType);
     }
 
-    public bool ConfirmBuyingLumbermillWorker(WorkerGrade grade){
-        return true;
+    public bool CanBuyLumbermillWorker(WorkerGrade grade){
+        return ((int)grade & 1) == 1;
     }
-    public bool ConfirmBuyingMineWorker(WorkerGrade grade){
-        return true;
+    public bool CanBuyMineWorker(WorkerGrade grade){
+        return ((int)grade & 1) != 1;
     }
 }

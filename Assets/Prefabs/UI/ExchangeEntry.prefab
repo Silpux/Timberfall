@@ -143,6 +143,9 @@ MonoBehaviour:
   - {fileID: 5836306277460246299}
   - {fileID: 3847650936989549439}
   outputSlot: {fileID: 6752494230926736631}
+  backgroundImage: {fileID: 367836474368231131}
+  backgroundOkSprite: {fileID: 21300000, guid: 35420121535dbf94d96950f8daf72c1d, type: 3}
+  backgroundNoSprite: {fileID: 21300000, guid: c85a5add403ec744fa0f844a922a32d5, type: 3}
 --- !u!1 &6498344411069432332
 GameObject:
   m_ObjectHideFlags: 0

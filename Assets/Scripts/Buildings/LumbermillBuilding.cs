@@ -10,7 +10,7 @@ public class LumbermillBuilding : WorkerBuilding{
     public override int GetCostForNextWorker() => (1 << Workers.Count) * 100;
 
     public override bool AddWorker(WorkerGrade grade){
-        if(Inventory.Instance.ConfirmBuyingLumbermillWorker(grade)){
+        if(Inventory.Instance.CanBuyLumbermillWorker(grade)){
             Worker newWorker = new Worker(grade){
                 Building = this
             };

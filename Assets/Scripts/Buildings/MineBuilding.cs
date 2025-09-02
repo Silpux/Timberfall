@@ -6,7 +6,7 @@ public class MineBuilding : WorkerBuilding{
         PanelManager.Instance.OpenMinePanel(this);
     }
     public override bool AddWorker(WorkerGrade grade){
-        if(Inventory.Instance.ConfirmBuyingMineWorker(grade)){
+        if(Inventory.Instance.CanBuyMineWorker(grade)){
             Worker newWorker = new Worker(grade){
                 Building = this
             };
