@@ -8,6 +8,7 @@ public class LumbermillWorker : Worker{
         GoingToTree,
         CuttingTree,
         GoingToLumbermill,
+        GoingToLumbermillStuck,
     }
 
     [SerializeField] private float hitCooldown;
@@ -44,12 +45,18 @@ public class LumbermillWorker : Worker{
     }
 
     private void SetTreeTarget(){
+        TargetTree = null;
         TreeObj tree = TileManager.Instance.GetClosestFreeTree(transform);
         if(tree != null){
             Vector3 offsetPoint = GetOffsetPoint(transform.position, tree.transform.position, 1f);
-            SetDestination(offsetPoint);
-            TargetTree = tree;
-            state = State.GoingToTree;
+            if(IsReachableTarget(offsetPoint)){
+                SetDestination(offsetPoint);
+                TargetTree = tree;
+                state = State.GoingToTree;
+            }
+            else{
+                state = State.Idle;
+            }
         }
         else{
             state = State.Idle;
@@ -67,6 +74,12 @@ public class LumbermillWorker : Worker{
                 SetTreeTarget();
                 break;
             case State.GoingToTree:
+                if(agent.pathStatus != NavMeshPathStatus.PathComplete){
+                    TargetTree = null;
+                    state = State.Idle;
+                    agent.ResetPath();
+                    break;
+                }
                 if(ReachedDestination() && FaceTarget(TargetTree.transform)){
                     state = State.CuttingTree;
                     currentHitCooldown = 3;
@@ -80,9 +93,23 @@ public class LumbermillWorker : Worker{
                 }
                 break;
             case State.GoingToLumbermill:
+                if(agent.pathStatus != NavMeshPathStatus.PathComplete){
+                    state = State.GoingToLumbermillStuck;
+                    break;
+                }
                 if(ReachedDestination()){
                     SetTreeTarget();
-                    state = State.Idle;
+                }
+                break;
+            case State.GoingToLumbermillStuck:
+                if(!agent.pathPending){
+                    if(agent.pathStatus == NavMeshPathStatus.PathComplete){
+                        state = State.GoingToLumbermill;
+                    }
+                    else{
+                        agent.velocity = Vector3.zero;
+                        SetLumbermillTarget();
+                    }
                 }
                 break;
             default:
@@ -137,5 +164,9 @@ public class LumbermillWorker : Worker{
 
     public override void SetDestination(Vector3 position){
         agent.SetDestination(position);
+    }
+
+    public override void Clear(){
+        TargetTree = null;
     }
 }

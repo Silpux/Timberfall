@@ -17,4 +17,8 @@ public class MineWorker : Worker{
     public override void SetDestination(Vector3 position){
         agent.SetDestination(position);
     }
+
+    public override void Clear(){
+        
+    }
 }

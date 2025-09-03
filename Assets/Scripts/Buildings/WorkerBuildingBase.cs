@@ -20,6 +20,7 @@ public abstract class WorkerBuildingBase : Building{
     }
     public override void Remove(){
         for(int i = Workers.Count-1;i>=0;i--){
+            Workers[i].Clear();
             RemoveWorker(Workers[i]);
         }
         base.Remove();
