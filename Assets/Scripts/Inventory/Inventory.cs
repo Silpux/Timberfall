@@ -1,13 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour{
-
-    public static Inventory Instance => instance;
-    private static Inventory instance;
+public class Inventory : Singleton<Inventory>{
 
     private List<InventorySlot> slots = new List<InventorySlot>();
 
@@ -15,15 +11,6 @@ public class Inventory : MonoBehaviour{
 
     [SerializeField] private ItemDataSO testItem;
     [SerializeField] private int testItemAmount;
-
-    private void Awake(){
-
-        if(instance != null){
-            Destroy(gameObject);
-            return;
-        }
-        instance = this;
-    }
 
     [ContextMenu("Add test item")]
     public void AddTestItem(){
@@ -33,7 +20,6 @@ public class Inventory : MonoBehaviour{
     public void RemoveTestItem(){
         RemoveItem(testItem, testItemAmount);
     }
-
 
     public void AddItem(ItemDataSO item, int amount){
 

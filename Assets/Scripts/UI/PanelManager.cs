@@ -1,9 +1,6 @@
 using UnityEngine;
 
-public class PanelManager : MonoBehaviour{
-
-    private static PanelManager instance;
-    public static PanelManager Instance => instance;
+public class PanelManager : Singleton<PanelManager>{
 
     [SerializeField] private CameraController cameraController;
 
@@ -11,7 +8,6 @@ public class PanelManager : MonoBehaviour{
     [SerializeField] private LumbermillPanel lumbermillPanel;
     [SerializeField] private MinePanel minePanel;
 
-    
     [SerializeField] private MarketPanel marketPanel;
     [SerializeField] private ForgePanel forgePanel;
     [SerializeField] private InventoryPanel inventoryPanel;
@@ -19,16 +15,6 @@ public class PanelManager : MonoBehaviour{
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject inventoryButton;
     [SerializeField] private GameObject addBuildingsButton;
-
-    private void Awake(){
- 
-        if(instance != null){
-            Destroy(gameObject);
-            return;
-        }
-
-        instance = this;
-    }
 
     public void DisableButtons(){
         pauseButton.SetActive(false);

@@ -2,10 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class GameInput : MonoBehaviour{
-    public static GameInput Instance => instance;
-
-    private static GameInput instance;
+public class GameInput : Singleton<GameInput>{
 
     private InputSystem_Actions actions;
 
@@ -15,15 +12,8 @@ public class GameInput : MonoBehaviour{
     public event Action<Vector2> OnLookPerformed;
     public event Action<int> OnScrollPerformed;
 
-    private void Awake(){
- 
-        if(instance != null){
-            Destroy(gameObject);
-            return;
-        }
-
-        instance = this;
-        DontDestroyOnLoad(this);
+    protected override void Awake(){
+        base.Awake();
         actions = new InputSystem_Actions();
     }
 

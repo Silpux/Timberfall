@@ -1,11 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileManager : MonoBehaviour{
-
-    public static TileManager Instance => instance;
-
-    private static TileManager instance;
+public class TileManager : Singleton<TileManager>{
 
     private Tile[,] tilesArray;
     private List<TileGrass> grassTiles = new();
@@ -15,15 +11,8 @@ public class TileManager : MonoBehaviour{
     private int height;
     private Vector3 minPos;
 
-    private void Awake(){
-
-        if(instance != null){
-            Destroy(gameObject);
-            return;
-        }
-
-        instance = this;
-
+    protected override void Awake(){
+        base.Awake();
         InitializeTiles();
     }
 
