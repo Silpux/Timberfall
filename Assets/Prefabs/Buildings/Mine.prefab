@@ -163,7 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b325fd1910e4dfd4db077b734ea1b6ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resource: {fileID: 0}
   workerSpawnPosition: {fileID: 6951419342517625680}
   workerPrefab: {fileID: 7575738119938727909, guid: 2162ae46076b7cf4da1975cc6b551562,
     type: 3}

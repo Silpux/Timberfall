@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class MineBuilding : WorkerBuilding<MineWorker>{
     public override void OnClick(){
-        Debug.Log("Open Mine");
         PanelManager.Instance.OpenMinePanel(this);
     }
     public override bool AddWorker(WorkerGrade grade){

@@ -3,7 +3,6 @@ using UnityEngine;
 public class LumbermillBuilding : WorkerBuilding<LumbermillWorker>{
 
     public override void OnClick(){
-        Debug.Log("Open lumbermill");
         PanelManager.Instance.OpenLumbermillPanel(this);
     }
 
