@@ -11,18 +11,18 @@ public class WorkerEntry : MonoBehaviour{
 
     [SerializeField] private Image toolImage;
 
-    private WorkerData worker;
+    private Worker worker;
 
-    public event Action OnRemove;
+    public event Action<Worker> OnRemove;
 
     public void Close(){
         worker.Remove();
-        OnRemove?.Invoke();
+        OnRemove?.Invoke(worker);
     }
 
-    public void SetWorker(WorkerData worker){
+    public void SetWorker(Worker worker){
         this.worker = worker;
-        toolImage.sprite = worker.Grade switch{
+        toolImage.sprite = worker.WorkerData.Grade switch{
             WorkerGrade.Wood => woodenToolSprite,
             WorkerGrade.Stone => stoneToolSprite,
             WorkerGrade.Iron => ironToolSprite,

@@ -1,5 +1,7 @@
-using System.Collections.Generic;
+using UnityEngine;
 
-public abstract class WorkerBuilding<W> : WorkerBuildingBase where W : WorkerData{
+public abstract class WorkerBuilding<W> : WorkerBuildingBase where W : Worker{
+
+    [SerializeField] protected W workerPrefab;
 
 }

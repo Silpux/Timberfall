@@ -1,15 +1,15 @@
 using UnityEngine;
 
-public class MineBuilding : WorkerBuilding<MineWorkerData>{
+public class MineBuilding : WorkerBuilding<MineWorker>{
     public override void OnClick(){
         Debug.Log("Open Mine");
         PanelManager.Instance.OpenMinePanel(this);
     }
     public override bool AddWorker(WorkerGrade grade){
         if(Inventory.Instance.CanBuyMineWorker(grade)){
-            MineWorkerData newWorker = new MineWorkerData(grade){
-                Building = this
-            };
+            MineWorker newWorker = Instantiate(workerPrefab, transform.position + Vector3.forward * 3, Quaternion.identity);
+            newWorker.Grade = grade;
+            newWorker.Building = this;
             Workers.Add(newWorker);
             return true;
         }

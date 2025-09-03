@@ -27,11 +27,16 @@ public abstract class WorkerBuildingPanel<B> : BuildingPanel<B> where B : Worker
     public override void RefreshUI() => SetBuilding(building);
 
     public void FillWorkersUI(){
-        foreach(var w in building.Workers){
+        foreach(Worker worker in building.Workers){
             WorkerEntry newEntry = Instantiate(workerEntryPrefab, workersListParent);
-            newEntry.SetWorker(w);
-            newEntry.OnRemove += RefreshUI;
+            newEntry.SetWorker(worker);
+            newEntry.OnRemove += RemoveWorker;
         }
+    }
+
+    public void RemoveWorker(Worker worker){
+        building.RemoveWorker(worker);
+        RefreshUI();
     }
 
     private void OnEnable(){

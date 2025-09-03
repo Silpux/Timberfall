@@ -1,13 +1,24 @@
 using System.Collections.Generic;
 
 public abstract class WorkerBuildingBase : Building{
-    public List<WorkerData> Workers{get;} = new();
+    public List<Worker> Workers{get;} = new();
+    public IEnumerable<WorkerData> WorkerDatas{
+        get{
+            foreach(Worker w in Workers){
+                yield return w.WorkerData;
+            }
+        }
+    }
     public abstract int GetCostForNextWorker();
     public abstract bool AddWorker(WorkerGrade grade);
-    public void RemoveWorker(WorkerData worker){
+    public void RemoveWorker(Worker worker){
         Workers.Remove(worker);
+        Destroy(worker.gameObject);
     }
     public override void Remove(){
+        for(int i = Workers.Count-1;i>=0;i--){
+            RemoveWorker(Workers[i]);
+        }
         base.Remove();
         Destroy(gameObject);
     }
