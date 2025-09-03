@@ -10,6 +10,9 @@ public class LumbermillWorker : Worker{
         GoingToLumbermill,
     }
 
+    [SerializeField] private float hitCooldown;
+    private float currentHitCooldown;
+
     public override WorkerData WorkerData => new LumbermillWorkerData(Building, grade);
     private WorkerGrade grade;
     public override WorkerGrade Grade{
@@ -20,41 +23,66 @@ public class LumbermillWorker : Worker{
     }
 
     private State state;
+
     private TreeObj targetTree;
+    public TreeObj TargetTree{
+        get => targetTree;
+        private set{
+            if(targetTree != null){
+                targetTree.IsTargeted = false;
+            }
+            if(value != null){
+                value.IsTargeted = true;
+            }
+            targetTree = value;
+        }
+    }
 
     private void Start(){
         state = State.Idle;
-        FindTargetTree();
+        SetTreeTarget();
     }
 
-    private void FindTargetTree(){
+    private void SetTreeTarget(){
         TreeObj tree = TileManager.Instance.GetClosestFreeTree(transform);
         if(tree != null){
             Vector3 offsetPoint = GetOffsetPoint(transform.position, tree.transform.position, 1f);
             SetDestination(offsetPoint);
-            tree.IsTargeted = true;
-            targetTree = tree;
+            TargetTree = tree;
             state = State.GoingToTree;
         }
         else{
-            Debug.Log("Tree was null");
             state = State.Idle;
         }
     }
 
+    private void SetLumbermillTarget(){
+        TargetTree = null;
+        SetDestination(Building.WorkerTarget.position);
+    }
+
     private void Update(){
         switch(state){
+            case State.Idle:
+                SetTreeTarget();
+                break;
             case State.GoingToTree:
-                if(ReachedDestination() && FaceTarget(targetTree.transform)){
+                if(ReachedDestination() && FaceTarget(TargetTree.transform)){
                     state = State.CuttingTree;
-                    Debug.Log("Curring tree");
+                    currentHitCooldown = 3;
                 }
                 break;
             case State.CuttingTree:
+                currentHitCooldown -= Time.deltaTime;
+                if(currentHitCooldown <= 0){
+                    SetLumbermillTarget();
+                    state = State.GoingToLumbermill;
+                }
                 break;
             case State.GoingToLumbermill:
                 if(ReachedDestination()){
-                    Debug.Log("Reached lumbermill");
+                    SetTreeTarget();
+                    state = State.Idle;
                 }
                 break;
             default:

@@ -11,6 +11,7 @@ public abstract class WorkerBuildingBase : Building{
         }
     }
     [SerializeField] protected Transform workerSpawnPosition;
+    public Transform WorkerTarget => workerSpawnPosition;
     public abstract int GetCostForNextWorker();
     public abstract bool AddWorker(WorkerGrade grade);
     public void RemoveWorker(Worker worker){
