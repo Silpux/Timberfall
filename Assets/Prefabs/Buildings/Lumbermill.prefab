@@ -251,6 +251,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &6650918590882058143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8169636755886408246}
+  m_Layer: 0
+  m_Name: WorkerSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8169636755886408246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650918590882058143}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.922, y: 0, z: 0.277}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1997816954373487654}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8559607099410320914
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +319,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8073512815649795338}
+  - {fileID: 8169636755886408246}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-7820528609596971507
@@ -302,6 +334,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0765313cfdfd54ab2a95cfc3eb9d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resource: {fileID: 0}
+  workerSpawnPosition: {fileID: 8169636755886408246}
   workerPrefab: {fileID: 6491469430075805405, guid: 28b79fda0b1e0ff47a2d75127bdfe3c6,
     type: 3}
 --- !u!208 &-6607233796891789710

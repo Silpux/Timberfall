@@ -10,7 +10,7 @@ public abstract class WorkerBuildingBase : Building{
             }
         }
     }
-    [SerializeField] protected ItemDataSO resource;
+    [SerializeField] protected Transform workerSpawnPosition;
     public abstract int GetCostForNextWorker();
     public abstract bool AddWorker(WorkerGrade grade);
     public void RemoveWorker(Worker worker){

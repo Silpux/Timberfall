@@ -10,21 +10,25 @@ public class Inventory : Singleton<Inventory>{
 
     public event Action OnInventoryUpdate;
 
-    [SerializeField] private ItemDataSO testItem;
+    [SerializeField] private List<ItemDataSO> testItems;
     [SerializeField] private int testItemAmount;
 
     [ContextMenu("Add test item")]
     public void AddTestItem(){
-        AddItem(testItem, testItemAmount);
+        foreach(ItemDataSO item in testItems){
+            AddItem(item, testItemAmount);
+        }
     }
     [ContextMenu("Remove test item")]
     public void RemoveTestItem(){
-        RemoveItem(testItem, testItemAmount);
+        foreach(ItemDataSO item in testItems){
+            RemoveItem(item, testItemAmount);
+        }
     }
 
     protected override void Awake(){
         base.Awake();
-        AddItem(testItem, testItemAmount);
+        AddTestItem();
     }
 
     public void AddItem(ItemDataSO item, int amount){

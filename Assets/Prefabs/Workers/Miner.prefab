@@ -135,6 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7883094280320771059}
   - component: {fileID: 7575738119938727909}
+  - component: {fileID: -4911983456671086618}
   m_Layer: 0
   m_Name: Miner
   m_TagString: Untagged
@@ -170,6 +171,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9c1a3cd41b1154692a3018ce5cbf91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!195 &-4911983456671086618
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744455780949438272}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.1
+  m_Speed: 1
+  m_Acceleration: 100
+  avoidancePriority: 50
+  m_AngularSpeed: 480
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &849966546063169755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,7 +1477,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6637742473750629667}

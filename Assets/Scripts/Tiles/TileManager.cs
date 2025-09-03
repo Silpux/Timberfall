@@ -108,6 +108,23 @@ public class TileManager : Singleton<TileManager>{
         return tileGrass;
     }
 
+    public TreeObj GetClosestFreeTree(Transform transform){
+        TreeObj closest = null;
+        float minDist = float.MaxValue;
+        foreach(TileGrass tileGrass in grassTiles){
+            if(tileGrass.HasTree && !tileGrass.CurrentTree.IsTargeted){
+                Vector2 treePosXZ = new Vector2(tileGrass.CurrentTree.transform.position.x, tileGrass.CurrentTree.transform.position.z);
+                Vector2 pointPosXZ = new Vector2(transform.position.x, transform.position.z);
+                float dist = Vector2.Distance(treePosXZ, pointPosXZ);
+                if(dist < minDist){
+                    closest = tileGrass.CurrentTree;
+                    minDist = dist;
+                }
+            }
+        }
+        return closest;
+    }
+
     public Tile GetTileAtPosition(Vector3 worldPos){
         int xIndex = Mathf.RoundToInt((worldPos.x - minPos.x) / tileSize);
         int zIndex = Mathf.RoundToInt((worldPos.z - minPos.z) / tileSize);

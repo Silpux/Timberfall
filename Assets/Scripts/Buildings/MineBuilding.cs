@@ -7,10 +7,7 @@ public class MineBuilding : WorkerBuilding<MineWorker>{
     }
     public override bool AddWorker(WorkerGrade grade){
         if(Inventory.Instance.ConfirmByuingMineWorker(grade, GetCostForNextWorker())){
-            MineWorker newWorker = Instantiate(workerPrefab, transform.position + Vector3.forward * 3, Quaternion.identity);
-            newWorker.Grade = grade;
-            newWorker.Building = this;
-            Workers.Add(newWorker);
+            SpawnWorker(grade);
             return true;
         }
         return false;

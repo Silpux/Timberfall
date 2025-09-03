@@ -14,4 +14,7 @@ public class MineWorker : Worker{
     public void SetBuilding(MineBuilding building){
         Building = building;
     }
+    public override void SetDestination(Vector3 position){
+        agent.SetDestination(position);
+    }
 }
