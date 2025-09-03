@@ -12,6 +12,6 @@ public class MarketStrategy : BuildStrategySO{
                 return false;
             }
         }
-        return true;
+        return Inventory.Instance.GetItemAmount(ItemType.Coins) >= Price;
     }
 }

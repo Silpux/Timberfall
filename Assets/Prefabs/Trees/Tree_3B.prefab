@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6784402344628636298}
   - component: {fileID: -283114453102615006}
+  - component: {fileID: 5328101653322838021}
   m_Layer: 0
   m_Name: Tree_3B
   m_TagString: Untagged
@@ -45,6 +46,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788c2220011f7da43b3bb4b4ae313433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &5328101653322838021
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040965287734131769}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.25, y: 0.5, z: 0.25}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4542769821391184057
 GameObject:
   m_ObjectHideFlags: 0

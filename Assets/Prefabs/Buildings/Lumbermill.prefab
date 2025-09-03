@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7178438201794545921
 Transform:
@@ -99,7 +99,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6224867534016424968
 Transform:
@@ -182,7 +182,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8073512815649795338
 Transform:
@@ -261,6 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1997816954373487654}
   - component: {fileID: -7820528609596971507}
+  - component: {fileID: -6607233796891789710}
   - component: {fileID: 3673353061154350356}
   - component: {fileID: 8092339137275257103}
   - component: {fileID: 1196444786198815438}
@@ -271,7 +272,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1997816954373487654
 Transform:
@@ -303,6 +304,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   workerPrefab: {fileID: 6491469430075805405, guid: 28b79fda0b1e0ff47a2d75127bdfe3c6,
     type: 3}
+--- !u!208 &-6607233796891789710
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8559607099410320914}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.5, y: 0.5, z: 1.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!65 &3673353061154350356
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -21,6 +21,11 @@ public class Inventory : Singleton<Inventory>{
         RemoveItem(testItem, testItemAmount);
     }
 
+    protected override void Awake(){
+        base.Awake();
+        AddItem(testItem, testItemAmount);
+    }
+
     public void AddItem(ItemDataSO item, int amount){
 
         if(item == null || item.ItemType == ItemType.None){
@@ -99,7 +104,6 @@ public class Inventory : Singleton<Inventory>{
         }
         return 0;
     }
-
     public bool CanBuyLumbermillWorker(WorkerGrade grade){
         return ((int)grade & 1) == 1;
     }
