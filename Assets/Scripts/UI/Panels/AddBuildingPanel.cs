@@ -6,12 +6,12 @@ public class AddBuildingPanel : Panel{
 
     [SerializeField] private BuildStrategySO lumbermillStrategy;
     [SerializeField] private BuildStrategySO marketStrategy;
-    [SerializeField] private BuildStrategySO blacksmithStrategy;
+    [SerializeField] private BuildStrategySO forgeStrategy;
     [SerializeField] private BuildStrategySO mineStrategy;
 
     [SerializeField] private BuildingButton lumbermillButton;
     [SerializeField] private BuildingButton marketButton;
-    [SerializeField] private BuildingButton blacksmithButton;
+    [SerializeField] private BuildingButton forgeButton;
     [SerializeField] private BuildingButton mineButton;
 
     [SerializeField] private Sprite selectedBuildingSprite;
@@ -28,10 +28,10 @@ public class AddBuildingPanel : Panel{
             DeselectBuildings();
             marketButton.SetSprite(selectedBuildingSprite);
         });
-        blacksmithButton.AddListener(() => {
-            cameraBuilding.BuildingStrategy = blacksmithStrategy;
+        forgeButton.AddListener(() => {
+            cameraBuilding.BuildingStrategy = forgeStrategy;
             DeselectBuildings();
-            blacksmithButton.SetSprite(selectedBuildingSprite);
+            forgeButton.SetSprite(selectedBuildingSprite);
         });
         mineButton.AddListener(() => {
             cameraBuilding.BuildingStrategy = mineStrategy;
@@ -41,14 +41,14 @@ public class AddBuildingPanel : Panel{
 
         lumbermillButton.SetPrice(lumbermillStrategy.Amount);
         marketButton.SetPrice(marketStrategy.Amount);
-        blacksmithButton.SetPrice(blacksmithStrategy.Amount);
+        forgeButton.SetPrice(forgeStrategy.Amount);
         mineButton.SetPrice(mineStrategy.Amount);
     }   
 
     private void DeselectBuildings(){
         lumbermillButton.SetSprite(deselectedBuildingSprite);
         marketButton.SetSprite(deselectedBuildingSprite);
-        blacksmithButton.SetSprite(deselectedBuildingSprite);
+        forgeButton.SetSprite(deselectedBuildingSprite);
         mineButton.SetSprite(deselectedBuildingSprite);
     }
 

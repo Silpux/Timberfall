@@ -589,11 +589,11 @@ MonoBehaviour:
   cameraBuilding: {fileID: 0}
   lumbermillStrategy: {fileID: 11400000, guid: 853cc2c22ea904f438857b5c6507dd1f, type: 2}
   marketStrategy: {fileID: 11400000, guid: f4bacfd01c2962f42a44fa8e8f65b865, type: 2}
-  blacksmithStrategy: {fileID: 11400000, guid: dd4b1a990da603648a64ba6764671993, type: 2}
+  forgeStrategy: {fileID: 11400000, guid: dd4b1a990da603648a64ba6764671993, type: 2}
   mineStrategy: {fileID: 11400000, guid: 7e54c8f2a391ae3498ed48123012228e, type: 2}
   lumbermillButton: {fileID: 8427543315045939780}
   marketButton: {fileID: 8244619815993457535}
-  blacksmithButton: {fileID: 8803395570937441135}
+  forgeButton: {fileID: 8803395570937441135}
   mineButton: {fileID: 7837171615806784857}
   selectedBuildingSprite: {fileID: 21300000, guid: 35420121535dbf94d96950f8daf72c1d,
     type: 3}
@@ -1550,7 +1550,7 @@ GameObject:
   - component: {fileID: 5953464495178439982}
   - component: {fileID: 8803395570937441135}
   m_Layer: 5
-  m_Name: BlacksmithButton
+  m_Name: ForgeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
