@@ -37,8 +37,20 @@ public class CameraBuilding : MonoBehaviour{
         GameInput.Instance.OnLookPerformed -= HandleLook;
     }
 
+    private bool IsMouseOverUI(){
+        Vector2 mousePos = Mouse.current.position.ReadValue();
+
+        PointerEventData eventData = new PointerEventData(EventSystem.current){
+            position = mousePos
+        };
+
+        var results = new System.Collections.Generic.List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+
+        return results.Count > 0;
+    }
     private void HandleDown(){
-        if(EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()){
+        if(IsMouseOverUI()){
             LowlightSelected();
             return;
         }
@@ -48,7 +60,7 @@ public class CameraBuilding : MonoBehaviour{
     }
 
     private void HandleUp(){
-        if(EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()){
+        if(IsMouseOverUI()){
             LowlightSelected();
             return;
         }
@@ -86,7 +98,7 @@ public class CameraBuilding : MonoBehaviour{
     }
 
     private void HandleLook(Vector2 delta){
-        if(EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()){
+        if(IsMouseOverUI()){
             LowlightSelected();
             return;
         }

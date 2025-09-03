@@ -46,8 +46,22 @@ public class CameraMovement : MonoBehaviour{
         transform.position = new Vector3(transform.position.x, newY, transform.position.z);
     }
 
+    private bool IsMouseOverUI(){
+        Vector2 mousePos = Mouse.current.position.ReadValue();
+
+        PointerEventData eventData = new PointerEventData(EventSystem.current){
+            position = mousePos
+        };
+
+        var results = new System.Collections.Generic.List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+
+        return results.Count > 0;
+    }
+
     private void HandleDown(){
-        if(EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()){
+        
+        if(IsMouseOverUI()){
             return;
         }
 

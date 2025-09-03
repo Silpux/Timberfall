@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class TileManager : Singleton<TileManager>{
@@ -6,6 +7,7 @@ public class TileManager : Singleton<TileManager>{
     private Tile[,] tilesArray;
     private List<TileGrass> grassTiles = new();
     [SerializeField] private float tileSize = 1f;
+    [SerializeField] private NavMeshSurface groundNavMeshSurface;
 
     private int width;
     private int height;
@@ -14,6 +16,11 @@ public class TileManager : Singleton<TileManager>{
     protected override void Awake(){
         base.Awake();
         InitializeTiles();
+        UpdateSurface();
+    }
+
+    public void UpdateSurface(){
+        groundNavMeshSurface.BuildNavMesh();
     }
 
     private void InitializeTiles(){
