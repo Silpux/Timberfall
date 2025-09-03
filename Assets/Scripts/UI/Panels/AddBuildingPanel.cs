@@ -39,10 +39,10 @@ public class AddBuildingPanel : Panel{
             mineButton.SetSprite(selectedBuildingSprite);
         });
 
-        lumbermillButton.SetPrice(lumbermillStrategy.Price);
-        marketButton.SetPrice(marketStrategy.Price);
-        blacksmithButton.SetPrice(blacksmithStrategy.Price);
-        mineButton.SetPrice(mineStrategy.Price);
+        lumbermillButton.SetPrice(lumbermillStrategy.Amount);
+        marketButton.SetPrice(marketStrategy.Amount);
+        blacksmithButton.SetPrice(blacksmithStrategy.Amount);
+        mineButton.SetPrice(mineStrategy.Amount);
     }   
 
     private void DeselectBuildings(){

@@ -95,6 +95,7 @@ public class CameraBuilding : MonoBehaviour{
             t.HasBuilding = true;
             building.OccupiedTiles.Add(t);
         }
+        Inventory.Instance.RemoveItem(BuildingStrategy.Resource, BuildingStrategy.Amount);
     }
 
     private void HandleLook(Vector2 delta){

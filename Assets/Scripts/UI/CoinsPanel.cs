@@ -6,6 +6,7 @@ using UnityEngine;
 public class CoinsPanel : MonoBehaviour{
     
     [SerializeField] private TextMeshProUGUI coinsNumberText;
+    [SerializeField] private ItemDataSO trackingItem;
 
     private void OnEnable(){
         StartCoroutine(ONEnable());
@@ -20,7 +21,7 @@ public class CoinsPanel : MonoBehaviour{
     }
 
     private void UpdateUI(){
-        coinsNumberText.text = $"{Inventory.Instance.GetItemAmount(ItemType.Coins).ToString("N0", CultureInfo.InvariantCulture)}";
+        coinsNumberText.text = $"{Inventory.Instance.GetItemAmount(trackingItem).ToString("N0", CultureInfo.InvariantCulture)}";
     }
 
     private void OnDisable(){

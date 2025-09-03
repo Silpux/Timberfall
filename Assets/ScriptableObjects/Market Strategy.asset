@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingPrefab: {fileID: -8984810206507884614, guid: 948e5932f5304ed4c99e4b96c07d2224,
     type: 3}
-  price: 200
+  resource: {fileID: 11400000, guid: 4416d3149f64b8844a44136e40c50d35, type: 2}
+  amount: 200

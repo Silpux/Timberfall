@@ -11,6 +11,6 @@ public class ForgeStrategy : BuildStrategySO{
                 return false;
             }
         }
-        return Inventory.Instance.GetItemAmount(ItemType.Coins) >= Price;
+        return Inventory.Instance.GetItemAmount(Resource) >= Amount;
     }
 }

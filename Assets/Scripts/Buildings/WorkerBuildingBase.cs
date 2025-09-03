@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public abstract class WorkerBuildingBase : Building{
     public List<Worker> Workers{get;} = new();
@@ -9,6 +10,7 @@ public abstract class WorkerBuildingBase : Building{
             }
         }
     }
+    [SerializeField] protected ItemDataSO resource;
     public abstract int GetCostForNextWorker();
     public abstract bool AddWorker(WorkerGrade grade);
     public void RemoveWorker(Worker worker){

@@ -6,7 +6,7 @@ public class MineBuilding : WorkerBuilding<MineWorker>{
         PanelManager.Instance.OpenMinePanel(this);
     }
     public override bool AddWorker(WorkerGrade grade){
-        if(Inventory.Instance.CanBuyMineWorker(grade)){
+        if(Inventory.Instance.ConfirmByuingMineWorker(grade, GetCostForNextWorker())){
             MineWorker newWorker = Instantiate(workerPrefab, transform.position + Vector3.forward * 3, Quaternion.identity);
             newWorker.Grade = grade;
             newWorker.Building = this;

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public interface IBuildingStrategy{
     bool CanPlace(Tile[] tiles);
-    int Price{get;}
+    ItemDataSO Resource{get;}
+    int Amount{get;}
     Building BuildingPrefab{get;}
 }
