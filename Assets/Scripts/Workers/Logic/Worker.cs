@@ -1,7 +1,14 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
 public abstract class Worker : MonoBehaviour{
+    
+    public abstract event Action OnWalk;
+    public abstract event Action OnIdle;
+    public abstract event Action OnGiveResource;
+
+    [SerializeField] protected WorkerVisualBase visual;
     
     protected NavMeshAgent agent;
     public WorkerBuildingBase Building{get; set;}
@@ -14,7 +21,7 @@ public abstract class Worker : MonoBehaviour{
     }
     protected virtual void Awake(){
         agent = GetComponent<NavMeshAgent>();
-        agent.speed *= Random.Range(0.9f, 1.1f);
+        agent.speed *= UnityEngine.Random.Range(0.9f, 1.1f);
     }
     protected bool IsReachableTarget(Vector3 targetPos){
         NavMeshPath path = new NavMeshPath();

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,7 +9,8 @@ public class MineWorker : Worker{
         GoingToForge,
         GoingToForgeStuck,
         GoingToMine,
-        GoingToMineStuck
+        GoingToMineStuck,
+        WaitForAnimationFinish
     }
 
     public override WorkerData WorkerData => new MineWorkerData(Grade);
@@ -18,7 +20,35 @@ public class MineWorker : Worker{
     private MineWorkerDataSO currentResource;
     public override WorkerGrade Grade{get; set;}
 
+
+    public override event Action OnWalk;
+    public override event Action OnIdle;
+    public override event Action OnGiveResource;
+
     private State state;
+    private State CurrentState{
+        get => state;
+        set{
+            if(state != value){
+                switch(value){
+                    case State.Idle:
+                    case State.GoingToForgeStuck:
+                    case State.GoingToMineStuck:
+                        OnIdle?.Invoke();
+                        break;
+                    case State.GoingToForge:
+                    case State.GoingToMine:
+                        OnWalk?.Invoke();
+                    break;
+                }
+            }
+            state = value;
+        }
+    }
+
+    protected void GiveResourceFinished(){
+        CurrentState = State.Idle;
+    }
 
     private void SetForgeTarget(){
         CurrentForge = null;
@@ -28,16 +58,16 @@ public class MineWorker : Worker{
             if(IsReachableTarget(forge.TargetPoint.position)){
                 SetDestination(forge.TargetPoint.position);
                 CurrentForge = forge;
-                state = State.GoingToForge;
+                CurrentState = State.GoingToForge;
             }
             else{
-                state = State.GoingToForgeStuck;
+                CurrentState = State.GoingToForgeStuck;
                 Debug.Log("not reachable target");
             }
         }
         else{
             Debug.Log("Forge is null");
-            state = State.GoingToForgeStuck;
+            CurrentState = State.GoingToForgeStuck;
         }
     }
 
@@ -51,20 +81,34 @@ public class MineWorker : Worker{
         SetDestination(Building.TargetPoint.position);
     }
 
+    private void GiveResource(){
+        OnGiveResource?.Invoke();
+        CurrentForge.AcceptResource(currentResource);
+        currentResource = null;
+        CurrentState = State.WaitForAnimationFinish;
+    }
+
     private void Start(){
-        state = State.Idle;
+        CurrentState = State.Idle;
+    }
+    protected void OnEnable(){
+        (visual as MineWorkerVisual).OnGiveResourceFinished += GiveResourceFinished;
+    }
+
+    protected void OnDisable(){
+        (visual as MineWorkerVisual).OnGiveResourceFinished -= GiveResourceFinished;
     }
 
     private void Update(){
 
-        switch(state){
+        switch(CurrentState){
             case State.Idle:
                 SetMineTarget();
-                state = State.GoingToMine;
+                CurrentState = State.GoingToMine;
                 break;
             case State.GoingToMine:
                 if(agent.pathStatus != NavMeshPathStatus.PathComplete){
-                    state = State.GoingToMineStuck;
+                    CurrentState = State.GoingToMineStuck;
                     break;
                 }
                 if(ReachedDestination()){
@@ -74,7 +118,7 @@ public class MineWorker : Worker{
             case State.GoingToMineStuck:
                 if(!agent.pathPending){
                     if(agent.pathStatus == NavMeshPathStatus.PathComplete){
-                        state = State.GoingToMine;
+                        CurrentState = State.GoingToMine;
                     }
                     else{
                         agent.velocity = Vector3.zero;
@@ -84,19 +128,17 @@ public class MineWorker : Worker{
                 break;
             case State.GoingToForge:
                 if(agent.pathStatus != NavMeshPathStatus.PathComplete || CurrentForge == null){
-                    state = State.GoingToForgeStuck;
+                    CurrentState = State.GoingToForgeStuck;
                     break;
                 }
                 if(ReachedDestination()){
-                    CurrentForge.AcceptResource(currentResource);
-                    currentResource = null;
-                    state = State.Idle;
+                    GiveResource();
                 }
                 break;
             case State.GoingToForgeStuck:
                 if(!agent.pathPending){
                     if(agent.pathStatus == NavMeshPathStatus.PathComplete && CurrentForge != null){
-                        state = State.GoingToForge;
+                        CurrentState = State.GoingToForge;
                     }
                     else{
                         agent.velocity = Vector3.zero;
@@ -116,4 +158,5 @@ public class MineWorker : Worker{
     public override void Clear(){
 
     }
+
 }

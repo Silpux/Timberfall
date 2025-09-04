@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9c1a3cd41b1154692a3018ce5cbf91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visual: {fileID: 417424096187204033}
 --- !u!195 &-4911983456671086618
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1460,6 +1461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 619473231577223966}
   - component: {fileID: 599828136443242539}
+  - component: {fileID: 417424096187204033}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -1510,6 +1512,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &417424096187204033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4642808712726938473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f842c34ad3fe647a8d200908a7d82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worker: {fileID: 7575738119938727909}
 --- !u!1 &4681992551650530700
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,7 +10,13 @@ public class LumbermillWorker : Worker{
         CuttingTree,
         GoingToLumbermill,
         GoingToLumbermillStuck,
+        WaitForAnimationFinish
     }
+
+    public override event Action OnWalk;
+    public override event Action OnIdle;
+    public override event Action OnGiveResource;
+    public event Action OnTreeHit;
 
     [SerializeField] private float hitCooldown;
     private float currentHitCooldown;
@@ -22,6 +29,28 @@ public class LumbermillWorker : Worker{
     public override WorkerGrade Grade{get; set;}
 
     private State state;
+    private State CurrentState{
+        get => state;
+        set{
+            if(state != value){
+                switch(value){
+                    case State.Idle:
+                    case State.GoingToLumbermillStuck:
+                    case State.CuttingTree:
+                        Debug.Log("Invoke idle");
+                        OnIdle?.Invoke();
+                        break;
+                    case State.GoingToTree:
+                    case State.GoingToLumbermill:
+                        Debug.Log("Invoke walk");
+                        OnWalk?.Invoke();
+                    break;
+                }
+            }
+            state = value;
+        }
+    }
+
 
     private TreeObj targetTree;
     public TreeObj TargetTree{
@@ -41,6 +70,22 @@ public class LumbermillWorker : Worker{
         SetTreeTarget();
     }
 
+    protected void OnEnable(){
+        (visual as LumbermillWorkerVisual).OnGiveResourceFinished += GiveResourceFinished;
+        (visual as LumbermillWorkerVisual).OnHitFinished += HitFinished;
+    }
+
+    protected void OnDisable(){
+        (visual as LumbermillWorkerVisual).OnGiveResourceFinished -= GiveResourceFinished;
+        (visual as LumbermillWorkerVisual).OnHitFinished -= HitFinished;
+    }
+
+    private void HitFinished(){
+        CurrentState = State.CuttingTree;
+        targetTree.TakeDamage(this, Damage);
+        currentHitCooldown = hitCooldown;
+    }
+
     private void SetTreeTarget(){
         TargetTree = null;
         TreeObj tree = TileManager.Instance.GetClosestFreeTree(transform);
@@ -49,15 +94,31 @@ public class LumbermillWorker : Worker{
             if(IsReachableTarget(offsetPoint)){
                 SetDestination(offsetPoint);
                 TargetTree = tree;
-                state = State.GoingToTree;
+                CurrentState = State.GoingToTree;
             }
             else{
-                state = State.Idle;
+                CurrentState = State.Idle;
             }
         }
         else{
-            state = State.Idle;
+            CurrentState = State.Idle;
         }
+    }
+
+    private void MakeHit(){
+        OnTreeHit?.Invoke();
+        CurrentState = State.WaitForAnimationFinish;
+    }
+
+    private void GiveResource(){
+        OnGiveResource?.Invoke();
+        (Building as LumbermillBuilding).AcceptResource(ObtainedItem, currentItemAmount);
+        currentItemAmount = 0;
+        CurrentState = State.WaitForAnimationFinish;
+    }
+
+    protected void GiveResourceFinished(){
+        SetTreeTarget();
     }
 
     private void SetLumbermillTarget(){
@@ -68,48 +129,45 @@ public class LumbermillWorker : Worker{
     public void AcceptWood(int amount){
         currentItemAmount = amount;
         SetLumbermillTarget();
-        state = State.GoingToLumbermill;
+        CurrentState = State.GoingToLumbermill;
     }
 
     private void Update(){
-        switch(state){
+        switch(CurrentState){
             case State.Idle:
                 SetTreeTarget();
                 break;
             case State.GoingToTree:
                 if(agent.pathStatus != NavMeshPathStatus.PathComplete){
                     TargetTree = null;
-                    state = State.Idle;
+                    CurrentState = State.Idle;
                     agent.ResetPath();
                     break;
                 }
                 if(ReachedDestination() && FaceTarget(TargetTree.transform)){
-                    state = State.CuttingTree;
+                    CurrentState = State.CuttingTree;
                     currentHitCooldown = 0;
                 }
                 break;
             case State.CuttingTree:
                 currentHitCooldown -= Time.deltaTime;
                 if(currentHitCooldown <= 0){
-                    targetTree.TakeDamage(this, Damage);
-                    currentHitCooldown = hitCooldown;
+                    MakeHit();
                 }
                 break;
             case State.GoingToLumbermill:
                 if(agent.pathStatus != NavMeshPathStatus.PathComplete){
-                    state = State.GoingToLumbermillStuck;
+                    CurrentState = State.GoingToLumbermillStuck;
                     break;
                 }
                 if(ReachedDestination()){
-                    (Building as LumbermillBuilding).AcceptResource(ObtainedItem, currentItemAmount);
-                    currentItemAmount = 0;
-                    SetTreeTarget();
+                    GiveResource();
                 }
                 break;
             case State.GoingToLumbermillStuck:
                 if(!agent.pathPending){
                     if(agent.pathStatus == NavMeshPathStatus.PathComplete){
-                        state = State.GoingToLumbermill;
+                        CurrentState = State.GoingToLumbermill;
                     }
                     else{
                         agent.velocity = Vector3.zero;
