@@ -15,3 +15,5 @@ MonoBehaviour:
   itemData: {fileID: 11400000, guid: 16215feff03fa7447bea3edb837692be, type: 2}
   axePrefab: {fileID: 5193346960331046587, guid: 380d2f982c9997a4b9de67243ce50b6b,
     type: 3}
+  resourcePrefab: {fileID: -2889649120149418610, guid: ebf7caed374a2c24e8930e8a9774f320,
+    type: 3}
