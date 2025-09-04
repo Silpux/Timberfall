@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,6 +20,8 @@ public class MineWorker : Worker{
 
     private MineWorkerDataSO currentResource;
     public override WorkerGrade Grade{get; set;}
+
+    private MineResource currentHoldingResource;
 
 
     public override event Action OnWalk;
@@ -73,6 +76,9 @@ public class MineWorker : Worker{
 
     public void AcceptResource(MineWorkerDataSO resource){
         currentResource = resource;
+        MineResource mineResource = Instantiate(resource.Prefab, ResourceHand);
+        mineResource.transform.localPosition = Vector3.zero;
+        currentHoldingResource = mineResource;
         SetForgeTarget();
     }
 
@@ -84,6 +90,7 @@ public class MineWorker : Worker{
     private void GiveResource(){
         OnGiveResource?.Invoke();
         CurrentForge.AcceptResource(currentResource);
+        Destroy(currentHoldingResource.gameObject);
         currentResource = null;
         CurrentState = State.WaitForAnimationFinish;
     }

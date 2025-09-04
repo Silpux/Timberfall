@@ -4,4 +4,6 @@ using UnityEngine;
 public class LumbermillWorkerDataSO : WorkerDataSO{
     [SerializeField] private Axe axePrefab;
     public Axe AxePrefab => axePrefab;
+    [SerializeField] private LumbermillResource resourcePrefab;
+    public LumbermillResource ResourcePrefab => resourcePrefab;
 }

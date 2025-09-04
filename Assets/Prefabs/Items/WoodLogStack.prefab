@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4366321465823234320}
   - component: {fileID: 330288499331521654}
   - component: {fileID: 1925899519137019686}
+  - component: {fileID: -1255933005997260469}
   m_Layer: 0
   m_Name: WoodLogStack
   m_TagString: Untagged
@@ -83,3 +84,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-1255933005997260469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3998991134771646216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da30f4b41bd48af4eb540c31f6adc33b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

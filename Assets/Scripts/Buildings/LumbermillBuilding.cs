@@ -27,6 +27,7 @@ public class LumbermillBuilding : WorkerBuilding<LumbermillWorker>{
             axe.transform.localPosition = Vector3.zero;
             newWorker.axe = axe;
             newWorker.ObtainedItem = data.ItemData;
+            newWorker.ResourcePrefab = data.ResourcePrefab;
             return true;
         }
         return false;

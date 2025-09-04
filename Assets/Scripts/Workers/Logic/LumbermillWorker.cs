@@ -23,6 +23,10 @@ public class LumbermillWorker : Worker{
     [SerializeField] private float hitCooldown;
     private float currentHitCooldown;
 
+    public LumbermillResource ResourcePrefab{get; set;}
+
+    private LumbermillResource currentHoldingResource;
+
     public Axe axe{get; set;}
     public ItemDataSO ObtainedItem{get; set;}
     private int currentItemAmount;
@@ -115,6 +119,7 @@ public class LumbermillWorker : Worker{
     private void GiveResource(){
         OnGiveResource?.Invoke();
         (Building as LumbermillBuilding).AcceptResource(ObtainedItem, currentItemAmount);
+        Destroy(currentHoldingResource.gameObject);
         currentItemAmount = 0;
         CurrentState = State.WaitForAnimationFinish;
     }
@@ -130,6 +135,9 @@ public class LumbermillWorker : Worker{
 
     public void AcceptWood(int amount){
         currentItemAmount = amount;
+        LumbermillResource resource = Instantiate(ResourcePrefab, ResourceHand);
+        resource.transform.localPosition = Vector3.zero;
+        currentHoldingResource = resource;
         SetLumbermillTarget();
         CurrentState = State.GoingToLumbermill;
     }

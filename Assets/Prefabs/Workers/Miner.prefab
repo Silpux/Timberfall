@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visual: {fileID: 417424096187204033}
+  resourceHand: {fileID: 2266788247036696851}
 --- !u!195 &-4911983456671086618
 NavMeshAgent:
   m_ObjectHideFlags: 0

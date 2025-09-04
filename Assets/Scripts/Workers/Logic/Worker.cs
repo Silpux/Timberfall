@@ -10,6 +10,9 @@ public abstract class Worker : MonoBehaviour{
 
     [SerializeField] protected WorkerVisualBase visual;
     
+    [SerializeField] private Transform resourceHand;
+    public Transform ResourceHand => resourceHand;
+    
     protected NavMeshAgent agent;
     public WorkerBuildingBase Building{get; set;}
     public abstract WorkerGrade Grade{get; set;}
