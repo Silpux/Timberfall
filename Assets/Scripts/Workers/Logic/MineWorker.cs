@@ -118,7 +118,7 @@ public class MineWorker : Worker{
                     CurrentState = State.GoingToMineStuck;
                     break;
                 }
-                if(ReachedDestination()){
+                if(ReachedDestination() && FaceTarget(Building.transform)){
                     (Building as MineBuilding).AcceptWorker(this);
                 }
                 break;

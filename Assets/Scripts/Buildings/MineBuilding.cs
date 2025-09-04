@@ -50,6 +50,10 @@ public class MineBuilding : WorkerBuilding<MineWorker>{
                 activeWorkers.RemoveAt(i);
                 entry.Worker.gameObject.SetActive(true);
                 entry.Worker.AcceptResource(GetResourceForGrade(entry.Worker.Grade));
+
+                Vector3 dir = entry.Worker.transform.position - transform.position;
+                dir.y = 0;
+                entry.Worker.transform.rotation = Quaternion.LookRotation(dir, Vector3.up);
             }
         }
     }
