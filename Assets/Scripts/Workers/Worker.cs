@@ -14,13 +14,20 @@ public abstract class Worker : MonoBehaviour{
     }
     protected virtual void Awake(){
         agent = GetComponent<NavMeshAgent>();
+        agent.speed *= Random.Range(0.9f, 1.1f);
     }
     protected bool IsReachableTarget(Vector3 targetPos){
         NavMeshPath path = new NavMeshPath();
         if(agent.CalculatePath(targetPos, path)){
             return path.status == NavMeshPathStatus.PathComplete;
         }
+        Debug.Log("CalculatePath false");
         return false;
+    }
+    protected bool ReachedDestination(){
+        return !agent.pathPending &&
+            agent.remainingDistance <= agent.stoppingDistance &&
+            (!agent.hasPath || agent.velocity.sqrMagnitude == 0f);
     }
 
 }

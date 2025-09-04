@@ -14,7 +14,7 @@ public class LumbermillWorker : Worker{
     [SerializeField] private float hitCooldown;
     private float currentHitCooldown;
 
-    public override WorkerData WorkerData => new LumbermillWorkerData(Building, grade);
+    public override WorkerData WorkerData => new LumbermillWorkerData(grade);
     private WorkerGrade grade;
     public override WorkerGrade Grade{
         get => grade;
@@ -40,7 +40,6 @@ public class LumbermillWorker : Worker{
     }
 
     private void Start(){
-        state = State.Idle;
         SetTreeTarget();
     }
 
@@ -65,7 +64,7 @@ public class LumbermillWorker : Worker{
 
     private void SetLumbermillTarget(){
         TargetTree = null;
-        SetDestination(Building.WorkerTarget.position);
+        SetDestination(Building.TargetPoint.position);
     }
 
     private void Update(){
@@ -141,13 +140,6 @@ public class LumbermillWorker : Worker{
         return false;
     }
 
-    private bool ReachedDestination(){
-        bool reached =  !agent.pathPending &&
-            agent.remainingDistance <= agent.stoppingDistance &&
-            (!agent.hasPath || agent.velocity.sqrMagnitude == 0f);
-            return reached;
-    }
-
     private Vector3 GetOffsetPoint(Vector3 agentPos, Vector3 targetPos, float radius){
         Vector3 dir = (agentPos - targetPos).normalized;
         Vector3 offsetPos = targetPos + dir * radius;
@@ -156,10 +148,6 @@ public class LumbermillWorker : Worker{
             return hit.position;
         }
         return targetPos;
-    }
-
-    public void SetBuilding(LumbermillBuilding building){
-        Building = building;
     }
 
     public override void SetDestination(Vector3 position){

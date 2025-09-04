@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class WorkerBuildingBase : Building{
+public abstract class WorkerBuildingBase : Building, ITargetable{
     public List<Worker> Workers{get;} = new();
     public IEnumerable<WorkerData> WorkerDatas{
         get{
@@ -11,7 +11,7 @@ public abstract class WorkerBuildingBase : Building{
         }
     }
     [SerializeField] protected Transform workerSpawnPosition;
-    public Transform WorkerTarget => workerSpawnPosition;
+    public Transform TargetPoint => workerSpawnPosition;
     public abstract int GetCostForNextWorker();
     public abstract bool AddWorker(WorkerGrade grade);
     public void RemoveWorker(Worker worker){

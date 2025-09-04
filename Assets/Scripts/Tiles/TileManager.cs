@@ -111,14 +111,36 @@ public class TileManager : Singleton<TileManager>{
     public TreeObj GetClosestFreeTree(Transform transform){
         TreeObj closest = null;
         float minDist = float.MaxValue;
+        Vector2 pointPosXZ = new Vector2(transform.position.x, transform.position.z);
         foreach(TileGrass tileGrass in grassTiles){
             if(tileGrass.HasTree && !tileGrass.CurrentTree.IsTargeted){
                 Vector2 treePosXZ = new Vector2(tileGrass.CurrentTree.transform.position.x, tileGrass.CurrentTree.transform.position.z);
-                Vector2 pointPosXZ = new Vector2(transform.position.x, transform.position.z);
                 float dist = Vector2.Distance(treePosXZ, pointPosXZ);
                 if(dist < minDist){
                     closest = tileGrass.CurrentTree;
                     minDist = dist;
+                }
+            }
+        }
+        return closest;
+    }
+
+    public B GetClosestBuilding<B>(Transform transform) where B : Building{
+        B closest = null;
+        float minDist = float.MaxValue;
+        Vector2 pointPosXZ = new Vector2(transform.position.x, transform.position.z);
+        for(int i=0;i<tilesArray.GetLength(0);i++){
+            for(int j = 0;j<tilesArray.GetLength(1);j++){
+                if(tilesArray[i,j] != null){
+                    Building building = tilesArray[i,j].CurrentBuilding;
+                    if(building is B tileBuilding){
+                        Vector2 buildingPosXZ = new Vector2(building.transform.position.x, building.transform.position.z);
+                        float dist = Vector2.Distance(buildingPosXZ, pointPosXZ);
+                        if(dist < minDist){
+                            closest = tileBuilding;
+                            minDist = dist;
+                        }
+                    }
                 }
             }
         }

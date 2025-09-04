@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class LumbermillWorkerData : WorkerData{
-    public LumbermillWorkerData(WorkerBuildingBase building, WorkerGrade grade) : base(building, grade){
+    public LumbermillWorkerData(WorkerGrade grade) : base(grade){
 
     }
 }

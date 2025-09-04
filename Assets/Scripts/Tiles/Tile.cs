@@ -12,8 +12,8 @@ public abstract class Tile : MonoBehaviour{
 
     public Transform PlacementPoint => placementPoint;
 
-    public bool HasBuilding {get; set;}
-
+    public bool HasBuilding => CurrentBuilding != null;
+    public Building CurrentBuilding{get; set;}
     public virtual bool IsFree => !HasBuilding;
 
     private void Awake(){

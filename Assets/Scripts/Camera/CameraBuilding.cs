@@ -92,7 +92,7 @@ public class CameraBuilding : MonoBehaviour{
         building.transform.localPosition = Vector3.zero;
 
         foreach(Tile t in tilesToOccupy){
-            t.HasBuilding = true;
+            t.CurrentBuilding = building;
             building.OccupiedTiles.Add(t);
         }
         Inventory.Instance.RemoveItem(BuildingStrategy.Resource, BuildingStrategy.Amount);

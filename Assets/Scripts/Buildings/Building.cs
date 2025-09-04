@@ -6,7 +6,7 @@ public abstract class Building : MonoBehaviour{
     public abstract void OnClick();
     public virtual void Remove(){
         foreach(Tile t in OccupiedTiles){
-            t.HasBuilding = false;
+            t.CurrentBuilding = null;
         }
     }
 }
