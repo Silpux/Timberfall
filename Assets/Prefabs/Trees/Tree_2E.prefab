@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3931447296982213428}
   - component: {fileID: 5797610969928162275}
   - component: {fileID: 344965444494790992}
+  - component: {fileID: 1838380889077041232}
+  - component: {fileID: 8204692291536764562}
   m_Layer: 0
   m_Name: Tree_2_E_Color1
   m_TagString: Untagged
@@ -83,6 +85,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &1838380889077041232
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3110821881662209293}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6337262de28f27e43854a86dca80b32d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8204692291536764562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3110821881662209293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1974b354f4b65214c9513f753898e479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8375938293689843531
 GameObject:
   m_ObjectHideFlags: 0

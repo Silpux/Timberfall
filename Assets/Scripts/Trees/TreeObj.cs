@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class TreeObj : MonoBehaviour{
@@ -9,12 +10,33 @@ public class TreeObj : MonoBehaviour{
     }
     private bool isDead = false;
     [field: SerializeField] public float HP{get; private set;}
+    public event Action OnHit;
+    public event Action OnDeath;
+    private TreeVisual visual;
+
+    private void Awake(){
+        visual = GetComponentInChildren<TreeVisual>();
+    }
+    private void OnEnable(){
+        visual.OnDeathAnimationFinish += Death;
+    }
+    private void OnDisable(){
+        visual.OnDeathAnimationFinish -= Death;
+    }
+
+    private void Death(){
+        Destroy(gameObject);
+    }
+
     public void TakeDamage(LumbermillWorker worker, float amount){
         HP -= amount;
         if(HP <= 0){
             worker.AcceptWood(woodAmount);
             isDead = true;
-            Destroy(gameObject);
+            OnDeath?.Invoke();
+        }
+        else{
+            OnHit?.Invoke();
         }
     }
 

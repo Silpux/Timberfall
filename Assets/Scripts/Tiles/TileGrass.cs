@@ -6,6 +6,7 @@ public class TileGrass : Tile{
     public TreeObj CurrentTree{get => tree; set{
         value.transform.parent = PlacementPoint;
         value.transform.localPosition = Vector3.zero;
+        value.transform.rotation = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
         tree = value;
     }}
 
