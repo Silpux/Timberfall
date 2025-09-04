@@ -14,14 +14,12 @@ public class LumbermillWorker : Worker{
     [SerializeField] private float hitCooldown;
     private float currentHitCooldown;
 
-    public override WorkerData WorkerData => new LumbermillWorkerData(grade);
-    private WorkerGrade grade;
-    public override WorkerGrade Grade{
-        get => grade;
-        set{
-            grade = value;
-        }
-    }
+    public float Damage{get; set;}
+    public ItemDataSO ObtainedItem{get; set;}
+    private int currentItemAmount;
+
+    public override WorkerData WorkerData => new LumbermillWorkerData(Grade);
+    public override WorkerGrade Grade{get; set;}
 
     private State state;
 
@@ -67,6 +65,12 @@ public class LumbermillWorker : Worker{
         SetDestination(Building.TargetPoint.position);
     }
 
+    public void AcceptWood(int amount){
+        currentItemAmount = amount;
+        SetLumbermillTarget();
+        state = State.GoingToLumbermill;
+    }
+
     private void Update(){
         switch(state){
             case State.Idle:
@@ -81,14 +85,14 @@ public class LumbermillWorker : Worker{
                 }
                 if(ReachedDestination() && FaceTarget(TargetTree.transform)){
                     state = State.CuttingTree;
-                    currentHitCooldown = 3;
+                    currentHitCooldown = 0;
                 }
                 break;
             case State.CuttingTree:
                 currentHitCooldown -= Time.deltaTime;
                 if(currentHitCooldown <= 0){
-                    SetLumbermillTarget();
-                    state = State.GoingToLumbermill;
+                    targetTree.TakeDamage(this, Damage);
+                    currentHitCooldown = hitCooldown;
                 }
                 break;
             case State.GoingToLumbermill:
@@ -97,6 +101,8 @@ public class LumbermillWorker : Worker{
                     break;
                 }
                 if(ReachedDestination()){
+                    (Building as LumbermillBuilding).AcceptResource(ObtainedItem, currentItemAmount);
+                    currentItemAmount = 0;
                     SetTreeTarget();
                 }
                 break;

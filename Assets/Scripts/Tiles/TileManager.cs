@@ -113,7 +113,7 @@ public class TileManager : Singleton<TileManager>{
         float minDist = float.MaxValue;
         Vector2 pointPosXZ = new Vector2(transform.position.x, transform.position.z);
         foreach(TileGrass tileGrass in grassTiles){
-            if(tileGrass.HasTree && !tileGrass.CurrentTree.IsTargeted){
+            if(tileGrass.HasTree && tileGrass.CurrentTree.IsAvailable){
                 Vector2 treePosXZ = new Vector2(tileGrass.CurrentTree.transform.position.x, tileGrass.CurrentTree.transform.position.z);
                 float dist = Vector2.Distance(treePosXZ, pointPosXZ);
                 if(dist < minDist){

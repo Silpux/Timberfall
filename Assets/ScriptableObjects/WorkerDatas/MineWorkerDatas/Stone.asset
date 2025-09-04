@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b45bf1e630818954bbd5de7865682061, type: 3}
-  m_Name: WoodenWorkerResource
+  m_Name: Stone
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4062361653160797127, guid: 1d7c1296b7571cd468e107135e46762c, type: 3}
-  itemData: {fileID: 11400000, guid: 471b2815d47319f42ba2883415baa636, type: 2}
+  prefab: {fileID: 996841622875973698, guid: 4cb458a5484ef5649af5208b7978376d, type: 3}
+  itemData: {fileID: 11400000, guid: 49519de3936d10041960946cce047410, type: 2}
   amount: 1
-  workingTime: 2
+  workingTime: 15

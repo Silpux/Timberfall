@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b45bf1e630818954bbd5de7865682061, type: 3}
-  m_Name: StoneWorkerResource
+  m_Name: Iron
   m_EditorClassIdentifier: 
-  prefab: {fileID: 996841622875973698, guid: 4cb458a5484ef5649af5208b7978376d, type: 3}
-  itemData: {fileID: 11400000, guid: 49519de3936d10041960946cce047410, type: 2}
+  prefab: {fileID: 7214295355119355340, guid: cf5a383e8ea50df4faaf88c4e83760bf, type: 3}
+  itemData: {fileID: 11400000, guid: db14c19390575184cb77e0dc08310ddf, type: 2}
   amount: 1
-  workingTime: 15
+  workingTime: 12

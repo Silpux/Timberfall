@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5811080492622363706}
   - component: {fileID: 7399703216685631728}
   - component: {fileID: 3555276770963890078}
-  - component: {fileID: 2119349098361237715}
   m_Layer: 0
   m_Name: Tree_1_B_Color1
   m_TagString: Untagged
@@ -84,18 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2119349098361237715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6573811127745106024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 788c2220011f7da43b3bb4b4ae313433, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8241902063179988207
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,6 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788c2220011f7da43b3bb4b4ae313433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  woodAmount: 10
+  <HP>k__BackingField: 30
 --- !u!208 &-766890642271125722
 NavMeshObstacle:
   m_ObjectHideFlags: 0

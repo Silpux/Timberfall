@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b45bf1e630818954bbd5de7865682061, type: 3}
-  m_Name: IronWorkerResource
+  m_Name: Diamond
   m_EditorClassIdentifier: 
   prefab: {fileID: 7214295355119355340, guid: cf5a383e8ea50df4faaf88c4e83760bf, type: 3}
   itemData: {fileID: 11400000, guid: db14c19390575184cb77e0dc08310ddf, type: 2}
-  amount: 1
-  workingTime: 12
+  amount: 3
+  workingTime: 7

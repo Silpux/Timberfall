@@ -334,10 +334,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0765313cfdfd54ab2a95cfc3eb9d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resource: {fileID: 0}
   workerSpawnPosition: {fileID: 8169636755886408246}
   workerPrefab: {fileID: 6491469430075805405, guid: 28b79fda0b1e0ff47a2d75127bdfe3c6,
     type: 3}
+  woodenWorkerDamage: {fileID: 11400000, guid: 6eaf9a67f165624418d403a8bab22325, type: 2}
+  stoneWorkerDamage: {fileID: 11400000, guid: 9a5d836949d70ba45b8e8a44389ff31b, type: 2}
+  ironWorkerDamage: {fileID: 11400000, guid: 07f1547ad90876d49bdbf64fddefe4bc, type: 2}
+  diamondWorkerDamage: {fileID: 11400000, guid: 0ad25b4f1cdf2624c825c5bc8d394ca6,
+    type: 2}
 --- !u!208 &-6607233796891789710
 NavMeshObstacle:
   m_ObjectHideFlags: 0
