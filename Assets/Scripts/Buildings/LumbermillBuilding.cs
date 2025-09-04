@@ -23,7 +23,9 @@ public class LumbermillBuilding : WorkerBuilding<LumbermillWorker>{
         if(Inventory.Instance.ConfirmByuingLumbermillWorker(grade, GetCostForNextWorker())){
             LumbermillWorker newWorker = SpawnWorker(grade);
             LumbermillWorkerDataSO data = GetResourceForGrade(grade);
-            newWorker.Damage = data.Damage;
+            Axe axe = Instantiate(data.AxePrefab, newWorker.AxeHand);
+            axe.transform.localPosition = Vector3.zero;
+            newWorker.axe = axe;
             newWorker.ObtainedItem = data.ItemData;
             return true;
         }

@@ -1848,6 +1848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visual: {fileID: 2073584990932606769}
+  axeHand: {fileID: 6805792934987493940}
   hitCooldown: 1.5
 --- !u!195 &-2388176545203167330
 NavMeshAgent:

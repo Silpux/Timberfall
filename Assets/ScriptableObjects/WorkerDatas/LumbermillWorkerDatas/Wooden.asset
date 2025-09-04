@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Wooden
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 16215feff03fa7447bea3edb837692be, type: 2}
-  damage: 10
+  axePrefab: {fileID: 5193346960331046587, guid: 380d2f982c9997a4b9de67243ce50b6b,
+    type: 3}

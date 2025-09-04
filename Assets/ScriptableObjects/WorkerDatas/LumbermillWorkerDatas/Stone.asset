@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Stone
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 16215feff03fa7447bea3edb837692be, type: 2}
-  damage: 20
+  axePrefab: {fileID: 2277729982449266429, guid: a3f049618c11b5143bde54a72ba7b61b,
+    type: 3}

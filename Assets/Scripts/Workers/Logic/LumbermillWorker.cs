@@ -18,10 +18,12 @@ public class LumbermillWorker : Worker{
     public override event Action OnGiveResource;
     public event Action OnTreeHit;
 
+    [SerializeField] private Transform axeHand;
+    public Transform AxeHand => axeHand;
     [SerializeField] private float hitCooldown;
     private float currentHitCooldown;
 
-    public float Damage{get; set;}
+    public Axe axe{get; set;}
     public ItemDataSO ObtainedItem{get; set;}
     private int currentItemAmount;
 
@@ -82,7 +84,7 @@ public class LumbermillWorker : Worker{
 
     private void HitFinished(){
         CurrentState = State.CuttingTree;
-        targetTree.TakeDamage(this, Damage);
+        targetTree.TakeDamage(this, axe.Damage);
         currentHitCooldown = hitCooldown;
     }
 
@@ -90,7 +92,7 @@ public class LumbermillWorker : Worker{
         TargetTree = null;
         TreeObj tree = TileManager.Instance.GetClosestFreeTree(transform);
         if(tree != null){
-            Vector3 offsetPoint = GetOffsetPoint(transform.position, tree.transform.position, 1f);
+            Vector3 offsetPoint = GetOffsetPoint(transform.position, tree.transform.position, 0.75f);
             if(IsReachableTarget(offsetPoint)){
                 SetDestination(offsetPoint);
                 TargetTree = tree;
