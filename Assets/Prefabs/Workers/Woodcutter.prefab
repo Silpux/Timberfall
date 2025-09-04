@@ -1848,7 +1848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visual: {fileID: 2073584990932606769}
-  hitCooldown: 3
+  hitCooldown: 1.5
 --- !u!195 &-2388176545203167330
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1859,7 +1859,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
-  m_Speed: 1
+  m_Speed: 0.7
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 3600

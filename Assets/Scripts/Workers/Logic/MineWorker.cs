@@ -131,7 +131,7 @@ public class MineWorker : Worker{
                     CurrentState = State.GoingToForgeStuck;
                     break;
                 }
-                if(ReachedDestination()){
+                if(ReachedDestination() && FaceTarget(CurrentForge.transform)){
                     GiveResource();
                 }
                 break;

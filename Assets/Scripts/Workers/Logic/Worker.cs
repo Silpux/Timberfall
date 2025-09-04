@@ -36,5 +36,29 @@ public abstract class Worker : MonoBehaviour{
             agent.remainingDistance <= agent.stoppingDistance &&
             (!agent.hasPath || agent.velocity.sqrMagnitude == 0f);
     }
+    
+    protected bool FaceTarget(Transform target, float rotationSpeed = 5f){
+        Vector3 direction = target.position - transform.position;
+        direction.y = 0f;
+
+        if(direction.sqrMagnitude < 0.001f){
+            return true;
+        }
+
+        Vector3 norm = direction.normalized;
+        float dot = Vector3.Dot(transform.forward, norm);
+        if(dot > 0.99f){
+            return true;
+        }
+
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+        transform.rotation = Quaternion.Slerp(
+            transform.rotation,
+            targetRotation,
+            Time.deltaTime * rotationSpeed
+        );
+        return false;
+    }
 
 }

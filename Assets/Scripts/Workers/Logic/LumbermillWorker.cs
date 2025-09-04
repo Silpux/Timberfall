@@ -160,7 +160,7 @@ public class LumbermillWorker : Worker{
                     CurrentState = State.GoingToLumbermillStuck;
                     break;
                 }
-                if(ReachedDestination()){
+                if(ReachedDestination() && FaceTarget(Building.transform)){
                     GiveResource();
                 }
                 break;
@@ -178,30 +178,6 @@ public class LumbermillWorker : Worker{
             default:
                 break;
         }
-    }
-
-    private bool FaceTarget(Transform target, float rotationSpeed = 5f){
-        Vector3 direction = target.position - transform.position;
-        direction.y = 0f;
-
-        if(direction.sqrMagnitude < 0.001f){
-            return true;
-        }
-
-        Vector3 norm = direction.normalized;
-        float dot = Vector3.Dot(transform.forward, norm);
-        if(dot > 0.99f){
-            return true;
-        }
-
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
-
-        transform.rotation = Quaternion.Slerp(
-            transform.rotation,
-            targetRotation,
-            Time.deltaTime * rotationSpeed
-        );
-        return false;
     }
 
     private Vector3 GetOffsetPoint(Vector3 agentPos, Vector3 targetPos, float radius){
