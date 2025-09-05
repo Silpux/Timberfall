@@ -189,6 +189,10 @@ public class LumbermillWorker : Worker{
                 break;
         }
     }
+    public override void Remove(){
+        TargetTree.IsTargeted = false;
+        base.Remove();
+    }
 
     private Vector3 GetOffsetPoint(Vector3 agentPos, Vector3 targetPos, float radius){
         Vector3 dir = (agentPos - targetPos).normalized;
