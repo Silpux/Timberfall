@@ -12,9 +12,22 @@ public class PanelManager : Singleton<PanelManager>{
     [SerializeField] private ForgePanel forgePanel;
     [SerializeField] private InventoryPanel inventoryPanel;
 
+    [SerializeField] private PausePanel pausePanel;
+
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject inventoryButton;
     [SerializeField] private GameObject addBuildingsButton;
+
+
+    public void Pause(){
+        Time.timeScale = 0f;
+        pausePanel.gameObject.SetActive(true);
+    }
+
+    public void ClosePause(){
+        Time.timeScale = 1f;
+        pausePanel.gameObject.SetActive(false);
+    }
 
     public void DisableButtons(){
         pauseButton.SetActive(false);
