@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788c2220011f7da43b3bb4b4ae313433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  woodAmount: 10
-  <HP>k__BackingField: 30
+  woodAmount: 25
+  <HP>k__BackingField: 60
 --- !u!208 &-7685830389780460638
 NavMeshObstacle:
   m_ObjectHideFlags: 0
