@@ -65,11 +65,9 @@ public class MineWorker : Worker{
             }
             else{
                 CurrentState = State.GoingToForgeStuck;
-                Debug.Log("not reachable target");
             }
         }
         else{
-            Debug.Log("Forge is null");
             CurrentState = State.GoingToForgeStuck;
         }
     }

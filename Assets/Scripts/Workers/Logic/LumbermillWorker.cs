@@ -43,12 +43,10 @@ public class LumbermillWorker : Worker{
                     case State.Idle:
                     case State.GoingToLumbermillStuck:
                     case State.CuttingTree:
-                        Debug.Log("Invoke idle");
                         OnIdle?.Invoke();
                         break;
                     case State.GoingToTree:
                     case State.GoingToLumbermill:
-                        Debug.Log("Invoke walk");
                         OnWalk?.Invoke();
                     break;
                 }

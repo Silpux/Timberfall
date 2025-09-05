@@ -14,17 +14,14 @@ public abstract class WorkerVisual<W> : WorkerVisualBase where W : Worker{
     }
 
     protected virtual void Walk(){
-        Debug.Log("Walk");
         animator.SetBool(IS_WALKING_ANIMATION, true);
     }
 
     protected virtual void Idle(){
-        Debug.Log("idle");
         animator.SetBool(IS_WALKING_ANIMATION, false);
     }
 
     protected virtual void GiveResource(){
-        Debug.Log("give resource");
         animator.SetTrigger(INTERACT_ANIMATION);
     }
 

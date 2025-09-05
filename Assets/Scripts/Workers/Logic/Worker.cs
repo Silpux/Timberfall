@@ -31,7 +31,6 @@ public abstract class Worker : MonoBehaviour{
         if(agent.CalculatePath(targetPos, path)){
             return path.status == NavMeshPathStatus.PathComplete;
         }
-        Debug.Log("CalculatePath false");
         return false;
     }
     protected bool ReachedDestination(){
