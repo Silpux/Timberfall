@@ -28,11 +28,11 @@ public class BackgroundMusic : MonoBehaviour{
     }
 
     public void SetPausedMode(){
-        pausedSnapshot.TransitionTo(0);
+        pausedSnapshot.TransitionTo(0.1f);
     }
 
     public void SetNormalMode(){
-        normalSnapshot.TransitionTo(0);
+        normalSnapshot.TransitionTo(0.1f);
     }
 
 }
