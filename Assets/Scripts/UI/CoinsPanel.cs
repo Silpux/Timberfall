@@ -13,7 +13,7 @@ public class CoinsPanel : MonoBehaviour{
     }
 
     private IEnumerator ONEnable(){
-        while(GameInput.Instance == null){
+        while(Inventory.Instance == null){
             yield return null;
         }
         Inventory.Instance.OnInventoryUpdate += UpdateUI;
