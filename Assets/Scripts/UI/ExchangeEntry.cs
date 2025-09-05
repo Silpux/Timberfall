@@ -44,7 +44,7 @@ public class ExchangeEntry : MonoBehaviour{
 
         int slotsToUpdate = Math.Min(inputSlots.Count, recipe.Inputs.Count);
 
-        for(int i = 2, j = 0; j<slotsToUpdate && i > 0; i--,j++){
+        for(int i = 2, j = 0; j<slotsToUpdate && i >= 0; i--,j++){
             inputSlots[i].gameObject.SetActive(true);
             inputSlots[i].Slot = recipe.Inputs[j];
         }

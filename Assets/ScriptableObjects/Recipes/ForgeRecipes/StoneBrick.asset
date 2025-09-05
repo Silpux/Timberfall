@@ -15,8 +15,11 @@ MonoBehaviour:
   inputs:
   - <Item>k__BackingField: {fileID: 11400000, guid: 471b2815d47319f42ba2883415baa636,
       type: 2}
-    <Amount>k__BackingField: 5
+    <Amount>k__BackingField: 10
+  - <Item>k__BackingField: {fileID: 11400000, guid: 4416d3149f64b8844a44136e40c50d35,
+      type: 2}
+    <Amount>k__BackingField: 15
   output:
     <Item>k__BackingField: {fileID: 11400000, guid: ed2d0df8323f5ef48b2a1f687d8d29f8,
       type: 2}
-    <Amount>k__BackingField: 1
+    <Amount>k__BackingField: 3

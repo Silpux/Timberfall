@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MineBuilding : WorkerBuilding<MineWorker>{
@@ -48,12 +49,13 @@ public class MineBuilding : WorkerBuilding<MineWorker>{
             entry.RemainingTime -= Time.deltaTime;
             if(entry.RemainingTime <= 0f){
                 activeWorkers.RemoveAt(i);
-                entry.Worker.gameObject.SetActive(true);
-                entry.Worker.AcceptResource(GetResourceForGrade(entry.Worker.Grade));
-
-                Vector3 dir = entry.Worker.transform.position - transform.position;
-                dir.y = 0;
-                entry.Worker.transform.rotation = Quaternion.LookRotation(dir, Vector3.up);
+                if(entry.Worker != null){
+                    entry.Worker.gameObject.SetActive(true);
+                    entry.Worker.AcceptResource(GetResourceForGrade(entry.Worker.Grade));
+                    Vector3 dir = entry.Worker.transform.position - transform.position;
+                    dir.y = 0;
+                    entry.Worker.transform.rotation = Quaternion.LookRotation(dir, Vector3.up);
+                }
             }
         }
     }

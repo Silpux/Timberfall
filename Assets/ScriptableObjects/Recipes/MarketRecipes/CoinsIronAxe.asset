@@ -10,16 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c36eb79b4a85c04e8aed29194e249b4, type: 3}
-  m_Name: IronIngot
+  m_Name: CoinsIronAxe
   m_EditorClassIdentifier: 
   inputs:
-  - <Item>k__BackingField: {fileID: 11400000, guid: 49519de3936d10041960946cce047410,
+  - <Item>k__BackingField: {fileID: 11400000, guid: 1716f6a03d6cf9448a74711d7a2d85af,
       type: 2}
-    <Amount>k__BackingField: 10
-  - <Item>k__BackingField: {fileID: 11400000, guid: 4416d3149f64b8844a44136e40c50d35,
-      type: 2}
-    <Amount>k__BackingField: 30
+    <Amount>k__BackingField: 1
   output:
-    <Item>k__BackingField: {fileID: 11400000, guid: 7bc9fdc87afe3ff449c3cb045d2c1a53,
+    <Item>k__BackingField: {fileID: 11400000, guid: 4416d3149f64b8844a44136e40c50d35,
       type: 2}
-    <Amount>k__BackingField: 3
+    <Amount>k__BackingField: 50

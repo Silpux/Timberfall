@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: db14c19390575184cb77e0dc08310ddf, type: 2}
   prefab: {fileID: 6968150074433813738, guid: cf5a383e8ea50df4faaf88c4e83760bf, type: 3}
-  amount: 1
-  workingTime: 12
+  amount: 3
+  workingTime: 5
