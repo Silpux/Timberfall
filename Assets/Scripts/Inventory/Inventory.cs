@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
 
 public class Inventory : Singleton<Inventory>{
@@ -10,25 +9,19 @@ public class Inventory : Singleton<Inventory>{
 
     public event Action OnInventoryUpdate;
 
-    [SerializeField] private List<ItemDataSO> testItems;
-    [SerializeField] private int testItemAmount;
+    [SerializeField] private ItemsListSO itemsList;
 
-    [ContextMenu("Add test item")]
-    public void AddTestItem(){
-        foreach(ItemDataSO item in testItems){
-            AddItem(item, testItemAmount);
-        }
-    }
-    [ContextMenu("Remove test item")]
-    public void RemoveTestItem(){
-        foreach(ItemDataSO item in testItems){
-            RemoveItem(item, testItemAmount);
-        }
+    public void Clear(){
+        slots = new List<InventorySlot>();
+        OnInventoryUpdate?.Invoke();
     }
 
     protected override void Awake(){
+
         base.Awake();
-        AddTestItem();
+        AddItem(ItemType.Coins, 400);
+        AddItem(ItemType.WoodenAxe, 1);
+
     }
 
     public void AddItem(ItemDataSO item, int amount){
@@ -50,6 +43,10 @@ public class Inventory : Singleton<Inventory>{
 
     }
 
+    public void AddItem(ItemType type, int amount){
+        AddItem(itemsList.GetItem(type), amount);
+    }
+
     public void RemoveItem(ItemDataSO item, int amount){
 
         if(item == null || item.ItemType == ItemType.None){
@@ -67,20 +64,7 @@ public class Inventory : Singleton<Inventory>{
         }
     }
     public void RemoveItem(ItemType type, int amount){
-
-        if(type == ItemType.None){
-            return;
-        }
-
-        for(int i = slots.Count-1;i>=0;i--){
-            if(slots[i].Item.ItemType == type){
-                slots[i].Amount -= amount;
-                if(slots[i].IsEmpty){
-                    slots.Remove(slots[i]);
-                }
-                OnInventoryUpdate?.Invoke();
-            }
-        }
+        RemoveItem(itemsList.GetItem(type), amount);
     }
 
     public bool CanExchange(CraftingRecipeSO recipe){
