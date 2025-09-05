@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class AddBuildingPanel : Panel{
@@ -17,23 +18,29 @@ public class AddBuildingPanel : Panel{
     [SerializeField] private Sprite selectedBuildingSprite;
     [SerializeField] private Sprite deselectedBuildingSprite;
 
+    public event Action OnClick;
+
     private void Start(){
         lumbermillButton.AddListener(() => {
+            OnClick?.Invoke();
             cameraBuilding.BuildingStrategy = lumbermillStrategy;
             DeselectBuildings();
             lumbermillButton.SetSprite(selectedBuildingSprite);
         });
         marketButton.AddListener(() => {
+            OnClick?.Invoke();
             cameraBuilding.BuildingStrategy = marketStrategy;
             DeselectBuildings();
             marketButton.SetSprite(selectedBuildingSprite);
         });
         forgeButton.AddListener(() => {
+            OnClick?.Invoke();
             cameraBuilding.BuildingStrategy = forgeStrategy;
             DeselectBuildings();
             forgeButton.SetSprite(selectedBuildingSprite);
         });
         mineButton.AddListener(() => {
+            OnClick?.Invoke();
             cameraBuilding.BuildingStrategy = mineStrategy;
             DeselectBuildings();
             mineButton.SetSprite(selectedBuildingSprite);

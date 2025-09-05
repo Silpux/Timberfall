@@ -17,13 +17,21 @@ public abstract class Worker : MonoBehaviour{
     public WorkerBuildingBase Building{get; set;}
     public abstract WorkerGrade Grade{get; set;}
     public abstract WorkerData WorkerData{get;}
+    protected abstract void PlayGiveResourceSound();
     public abstract void SetDestination(Vector3 position);
     public abstract void Clear();
+
+    protected AudioSource audioSource;
+
+    [SerializeField] protected AudioClip[] giveResourceAudioClips;
+
+
     public virtual void Remove(){
         Building.RemoveWorker(this);
     }
     protected virtual void Awake(){
         agent = GetComponent<NavMeshAgent>();
+        audioSource = GetComponent<AudioSource>();
         agent.speed *= UnityEngine.Random.Range(0.9f, 1.1f);
     }
     protected bool IsReachableTarget(Vector3 targetPos){
@@ -37,6 +45,14 @@ public abstract class Worker : MonoBehaviour{
         return !agent.pathPending &&
             agent.remainingDistance <= agent.stoppingDistance &&
             (!agent.hasPath || agent.velocity.sqrMagnitude == 0f);
+    }
+
+    protected AudioClip GetRandomClip(AudioClip[] clips){
+        return clips[UnityEngine.Random.Range(0, clips.Length)];
+    }
+
+    protected void PlayRandomClip(AudioClip[] clips){
+        audioSource.PlayOneShot(GetRandomClip(clips));
     }
     
     protected bool FaceTarget(Transform target, float rotationSpeed = 5f){

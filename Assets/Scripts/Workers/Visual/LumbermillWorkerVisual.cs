@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class LumbermillWorkerVisual : WorkerVisual<LumbermillWorker>{
 
-    public event Action OnHitFinished;
+    public event Action OnHit;
     private const string TREE_HIT_ANIMATION = "TreeHit";
 
     private void TreeHit(){
@@ -11,7 +11,7 @@ public class LumbermillWorkerVisual : WorkerVisual<LumbermillWorker>{
     }
 
     public void HitFinishedAnimationEvent(){
-        OnHitFinished?.Invoke();
+        OnHit?.Invoke();
     }
 
     public event Action OnGiveResourceFinished;
@@ -22,10 +22,10 @@ public class LumbermillWorkerVisual : WorkerVisual<LumbermillWorker>{
     
     protected override void OnEnable(){
         base.OnEnable();
-        worker.OnTreeHit += TreeHit;
+        worker.OnTreeHitStart += TreeHit;
     }
     protected override void OnDisable(){
         base.OnDisable();
-        worker.OnTreeHit -= TreeHit;
+        worker.OnTreeHitStart -= TreeHit;
     }
 }

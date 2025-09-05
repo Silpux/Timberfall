@@ -89,6 +89,7 @@ public class MineWorker : Worker{
         OnGiveResource?.Invoke();
         CurrentForge.AcceptResource(currentResource);
         Destroy(currentHoldingResource.gameObject);
+        PlayGiveResourceSound();
         currentResource = null;
         CurrentState = State.WaitForAnimationFinish;
     }
@@ -102,6 +103,11 @@ public class MineWorker : Worker{
 
     protected void OnDisable(){
         (visual as MineWorkerVisual).OnGiveResourceFinished -= GiveResourceFinished;
+    }
+
+    protected override void PlayGiveResourceSound(){
+        audioSource.pitch = UnityEngine.Random.Range(0.7f, 1.3f);
+        PlayRandomClip(giveResourceAudioClips);
     }
 
     private void Update(){

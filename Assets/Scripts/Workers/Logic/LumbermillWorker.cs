@@ -16,8 +16,9 @@ public class LumbermillWorker : Worker{
     public override event Action OnWalk;
     public override event Action OnIdle;
     public override event Action OnGiveResource;
-    public event Action OnTreeHit;
+    public event Action OnTreeHitStart;
 
+    [SerializeField] private AudioClip[] treeHitAudioClips;
     [SerializeField] private Transform axeHand;
     public Transform AxeHand => axeHand;
     [SerializeField] private float hitCooldown;
@@ -30,6 +31,7 @@ public class LumbermillWorker : Worker{
     public Axe axe{get; set;}
     public ItemDataSO ObtainedItem{get; set;}
     private int currentItemAmount;
+
 
     public override WorkerData WorkerData => new LumbermillWorkerData(Grade);
     public override WorkerGrade Grade{get; set;}
@@ -76,18 +78,29 @@ public class LumbermillWorker : Worker{
 
     protected void OnEnable(){
         (visual as LumbermillWorkerVisual).OnGiveResourceFinished += GiveResourceFinished;
-        (visual as LumbermillWorkerVisual).OnHitFinished += HitFinished;
+        (visual as LumbermillWorkerVisual).OnHit += HitFinished;
     }
 
     protected void OnDisable(){
         (visual as LumbermillWorkerVisual).OnGiveResourceFinished -= GiveResourceFinished;
-        (visual as LumbermillWorkerVisual).OnHitFinished -= HitFinished;
+        (visual as LumbermillWorkerVisual).OnHit -= HitFinished;
     }
 
     private void HitFinished(){
         CurrentState = State.CuttingTree;
         targetTree.TakeDamage(this, axe.Damage);
+        PlayTreeHitSound();
         currentHitCooldown = hitCooldown;
+    }
+
+    private void PlayTreeHitSound(){
+        audioSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+        PlayRandomClip(treeHitAudioClips);
+    }
+
+    protected override void PlayGiveResourceSound(){
+        audioSource.pitch = UnityEngine.Random.Range(0.7f, 1.3f);
+        PlayRandomClip(giveResourceAudioClips);
     }
 
     private void SetTreeTarget(){
@@ -110,13 +123,14 @@ public class LumbermillWorker : Worker{
     }
 
     private void MakeHit(){
-        OnTreeHit?.Invoke();
+        OnTreeHitStart?.Invoke();
         CurrentState = State.WaitForAnimationFinish;
     }
 
     private void GiveResource(){
         OnGiveResource?.Invoke();
         (Building as LumbermillBuilding).AcceptResource(ObtainedItem, currentItemAmount);
+        PlayGiveResourceSound();
         Destroy(currentHoldingResource.gameObject);
         currentItemAmount = 0;
         CurrentState = State.WaitForAnimationFinish;
